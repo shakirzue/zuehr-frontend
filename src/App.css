@@ -1,0 +1,178 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* custom css */
+.employee-form-container {
+  margin-top: 2%;
+}
+
+.panel-form-title {
+  font-size: 28px;
+  letter-spacing: 1px;
+  margin-bottom: 2%;
+}
+
+.company-information-title {
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-align: initial;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ececec;
+}
+
+.employee-form-card-container {
+  padding: 20px;
+}
+
+.select-component-container {
+  text-align: initial;
+  margin: 2% 0;
+}
+
+.select-component-label {
+  font-size: 16px;
+}
+
+.select-component-item {
+  margin-bottom: 5%;
+}
+
+.employee-list-add-btn {
+  align-self: end;
+}
+
+.employee-detail-box-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 10%;
+  text-align: justify;
+}
+
+.employee-detail-box-value {
+  font-weight: unset;
+  margin: unset
+}
+
+.employee-detail-box-info-btn {
+  text-align: justify;
+}
+
+.employee-detail-box-info-btn-active {
+  background-color: #28a745 !important;
+  border-color: #28a745 !important;
+}
+
+.employee-detail-info-pic-container {}
+
+.employee-detail-info-pic-container img {
+  width: 100%;
+}
+
+.employee-detail-info-pic-container button {
+  background-color: #e0a800 !important;
+  border-color: #e0a800 !important;
+}
+
+.employee-profiling-detail-tabs-container {
+  margin-top: 3%;
+  padding-bottom: 5%;
+}
+
+.employee-profiling-detail-tab-item-container {
+  background-color: #dee2e6;
+}
+
+.employee-profiling-detail-tab-item-container .nav-link.active {
+  background: #0075C9 !important;
+  color: #fff !important;
+}
+
+.employee-profiling-detail-tab-item-container .nav-link {
+  padding: 15px 20px;
+}
+
+.tab-section-header {
+  background: #80BC00;
+  color: #fff;
+  padding: 5px 10px;
+  text-align: justify;
+}
+
+.tab-section-card {
+  background: #fff;
+  padding: 15px;
+}
+
+.tab-section-card-button {
+  text-align: justify;
+}
+
+.tab-section-container {
+  margin-top: 3%;
+}
+
+.family-info-tab-list-container {
+  margin-top: 5%;
+  text-align: justify;
+}
+
+.family-info-tab-list-container h4 {
+  font-size: 18px;
+}
+
+.family-info-tab-form-container {
+  text-align: justify;
+}
+
+.primary-btn {
+  background: #80BC00 !important;
+  border-color: #80BC00 !important;
+}
+
+.custom-pagination-container {
+  align-self: self-end;
+}
+.required-docs-container {
+  margin: 3% 0;
+}
+
+.alert-container {
+  margin: 3% 0;
+}
