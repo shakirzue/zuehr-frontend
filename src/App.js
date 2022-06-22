@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import HomePage from "./Pages/Home";
 import LoginPage from "./Pages/Auth/Login";
 import SignUpPage from "./Pages/Auth/SignUp";
+import ForgetPage from "./Pages/Auth/Forget";
 //import PrivateRoute from './components/PrivateRoute';
 //import PrivateRouteQueryString from './components/PrivateRouteQueryString';
 import {
@@ -66,6 +67,7 @@ function App() {
           <Route path='/Home' element={<HomePage />} />
           <Route path='/' element={<LoginPage />} />
           <Route path='/SignUp' element={<SignUpPage />} />
+          <Route path='/Forget' element={<ForgetPage />} />
         </Routes>
       </div>
     </Router>

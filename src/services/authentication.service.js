@@ -9,6 +9,7 @@ export const authenticationService = {
     Logout,
     Login,
     SignUp,
+    Forget,
     currentUser: currentUserSubject.asObservable(),
     get currentUserValue () {return JSON.parse(localStorage.getItem('currentUser')); },
     get clientId() {return JSON.parse(localStorage.getItem('ClientId'));}
@@ -57,4 +58,14 @@ function SignUp() {
     // else
     //     setShowSignUpForm(false)
     window.location.href = '/SignUp';
+}
+
+function Forget() {
+    // if(!showSignUpForm){
+    //     setShowSignUpForm(true);
+    //     setShowLoginForm(false);
+    // }
+    // else
+    //     setShowSignUpForm(false)
+    window.location.href = '/Forget';
 }

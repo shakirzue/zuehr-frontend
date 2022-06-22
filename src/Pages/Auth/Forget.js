@@ -27,7 +27,7 @@ const Login = (props) => {
     };
 
     const redirectToDashboard = ()=>{
-        window.location.href = '/Home';
+        window.location.href = '/Forget';
     }
 
     const getPersonalDetailOfLogger = ()=>{
@@ -57,7 +57,7 @@ const Login = (props) => {
         
             <Form className="card col-sm-4 mx-auto d-flex justify-content-center align-items-center" style={{ minHeight: "500px", backgroundColor: 'white' }}>
             <img src={logo} alt="Zue logo" width="35%"/>
-                <h2 className="mt-3 mb-5">Login</h2>
+                <h2 className="mt-3 mb-5">Forget Password</h2>
                 <Form.Group className="mb-3 col-sm-8" size="lg" controlId="email">
                     
                         <Form.Control
@@ -68,21 +68,10 @@ const Login = (props) => {
                             onChange={(e) => setEmail(e.target.value)}
                         />
                         </Form.Group>
-                        <Form.Group className="mb-3 col-sm-8" size="lg" controlId="password">
-                    
-                        
-                        <Form.Control
-                            type="password"
-                            placeholder={'Enter Password'}
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-            </Form.Group>
-            <div className="d-flex fr">
-            <a href="/Forget" class="fr text-right mb-3">Forgot Your Password?</a>
-            </div>
+                      
+            
             <Button className="col-sm-8 primary-btn mb-3" block="true" size="lg" type="submit" disabled={!validateForm()} onClick={handleSubmitNonCpcgrLogin}>
-                    Login
+                    Reset Password
             </Button>
             <div class="reg mb-3">
                     Not Registered? <a href="/SignUp">Create Account</a>
