@@ -110,7 +110,8 @@ const HomePage = (props) => {
                     />
                 </div>
                 </>
-                :<>               
+                :<>  
+                <div className="hello">         
                 <Button
                     variant="contained"
                     color="primary"
@@ -128,6 +129,7 @@ const HomePage = (props) => {
                 >
                    Non CPCGR Login
                 </Button>
+                </div>    
                 </>
             }
         </div>

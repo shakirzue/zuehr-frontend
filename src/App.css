@@ -38,6 +38,12 @@
   }
 }
 
+body {
+  --primary-color: #ff0000;
+}
+
+
+
 /* custom css */
 .employee-form-container {
   margin-top: 2%;
@@ -162,17 +168,61 @@
 }
 
 .primary-btn {
-  background: #80BC00 !important;
-  border-color: #80BC00 !important;
+  background-color: var(--primary-color) !important;
+  border-radius: 8px !important;
+  color:#fff !important;
 }
 
 .custom-pagination-container {
   align-self: self-end;
 }
+
 .required-docs-container {
   margin: 3% 0;
 }
 
 .alert-container {
   margin: 3% 0;
+}
+
+form.card input {
+  -webkit-box-shadow: 1px 2px 4px #171414;
+  box-shadow: 1px 2px 4px #171414;
+  border-radius: 9px;
+}
+
+form.card {
+  border-radius:24px;
+  margin-right: 0px !important;
+  margin-top:140px;
+}
+.login-background{
+  background-image: url('/src/Images/hrms.jpg');
+}
+form.card .fr a {
+  color: var(--primary-color);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+form.card .reg a {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+.hrms-head h1{
+  color: #fff;
+  font-size: 72px;
+  text-shadow: 3px 5px black;
+}
+form.card .select-component-container {
+  margin: 0% 0;
+  border-radius: 9px;
+}
+form.card.sign-up{
+  margin-top:100px;
+}
+form.card select#timezone{
+  -webkit-box-shadow: 1px 2px 4px #171414;
+  box-shadow: 1px 2px 4px #171414;
+  border-radius: 9px;
 }

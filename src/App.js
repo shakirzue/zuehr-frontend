@@ -63,8 +63,8 @@ function App() {
             <Route path='/Attendance/ShiftDetails' element={<ShiftDetails />} />
 
           </Route>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/Login' element={<LoginPage />} />
+          <Route path='/Home' element={<HomePage />} />
+          <Route path='/' element={<LoginPage />} />
           <Route path='/SignUp' element={<SignUpPage />} />
         </Routes>
       </div>

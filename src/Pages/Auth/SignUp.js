@@ -50,69 +50,82 @@ const SignUp = (props) => {
     };
 
     return (
-        <div style={{ minHeight: "100vh", backgroundImage: backgroundColor }}>
-        <div class="container">
-            <Form>
-                <Form.Group size="lg" controlId="email">
-                <Form.Label>Email</Form.Label>
+        <div className="login-background" style={{ minHeight: "100vh", backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat' }}>
+        <div className="container">
+            <div class="row">
+                <div class="mt-5 d-flex justify-content-center align-items-center hrms-head col-sm-8">
+                    <h1 class="mt-5">Welcome to HRMS</h1>
+                </div>
+            <Form className="card sign-up col-sm-4 mx-auto d-flex justify-content-center align-items-center" style={{ minHeight: "600px", backgroundColor: 'white' }}>
+            <img src={logo} alt="Zue logo" width="35%"/>
+            <h2 className="mb-3">Sign Up</h2>
+                <Form.Group className="mb-3 col-sm-8" size="lg" controlId="email">
+               
                 <Form.Control
                     autoFocus
                     type="email"
+                    placeholder={'Email Address*'}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 </Form.Group>
-                <Form.Group size="lg" controlId="password">
-                <Form.Label>Password</Form.Label>
+                <Form.Group className="mb-3 col-sm-8" size="lg" controlId="password">
+               
                 <Form.Control
                     type="password"
+                    placeholder={'Set Password*'}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 </Form.Group>
 
-                <Form.Group size="lg" controlId="employeeNumber">
-                <Form.Label>Employee Number</Form.Label>
+                <Form.Group className="mb-3 col-sm-8" size="lg" controlId="employeeNumber">
+               
                 <Form.Control
                     autoFocus
                     type="text"
+                    placeholder={'Enter Employee ID*'}
                     value={employeeNumber}
                     onChange={(e) => setEmployeeNumber(e.target.value)}
                 />
                 </Form.Group>
 
-                <Form.Group size="lg" controlId="firstName">
-                <Form.Label>First Name</Form.Label>
+                <Form.Group className="mb-3 col-sm-8" size="lg" controlId="firstName">
+             
                 <Form.Control
                     autoFocus
                     type="text"
+                    placeholder={'First Name*'}
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                 />
                 </Form.Group>
 
-                <Form.Group size="lg" controlId="surName">
-                <Form.Label>Surname</Form.Label>
+                <Form.Group className="col-sm-8" size="lg" controlId="surName">
+        
                 <Form.Control
                     autoFocus
                     type="text"
+                    placeholder={'Last Name*'}
                     value={surName}
                     onChange={(e) => setSurName(e.target.value)}
                 />
                 </Form.Group>
 
-                <Form.Group size="lg" controlId="phone">
-                <Form.Label>Phone</Form.Label>
-                <Form.Control
+                {/* <Form.Group className="mb-3 col-sm-8" size="lg" controlId="phone"> */}
+          
+                {/* <Form.Control
                     autoFocus
                     type="phone"
+                    placeholder={'Phone Number*'}
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                />
-                </Form.Group>
+                /> */}
+                {/* </Form.Group> */}
 
-                <Form.Group size="lg" controlId="timezone">
-                <Form.Label>Timezone</Form.Label>
+                <Form.Group className="col-sm-8" size="lg" controlId="timezone">
+       
                 <Select name={'timezone'} id={'timezone'} options={lookups?.timezone} onChange={(name, value) => setTimezone(value)} />
                 {/* <Form.Control
                     autoFocus
@@ -122,10 +135,14 @@ const SignUp = (props) => {
                 /> */}
                 </Form.Group>
 
-                <Button block="true" size="lg" type="submit" disabled={!validateForm()} onClick={handleSubmitNonCpcgrSignUp}>
+                <Button className="col-sm-8 primary-btn mb-3" block="true" size="lg" type="submit" disabled={!validateForm()} onClick={handleSubmitNonCpcgrSignUp}>
                 Sign Up
                 </Button>
+                <div class="reg mb-3">
+                    Already have an account? <a href="/">Login</a>
+                </div>
             </Form>
+            </div>
         </div>
         </div>
     );
