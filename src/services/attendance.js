@@ -74,7 +74,7 @@ function searchAttendance(data) {
         headers: getHeaders(),
         body: JSON.stringify(data)
     };
-    return fetch(`${API_URL}${prefix}/findClockInOutRangeByProfileId`, requestOptions).then(handleResponse);
+    return fetch(`${API_URL}${prefix}/findClockInOutRange`, requestOptions).then(handleResponse);
 } 
 
 function createShift(data) {
