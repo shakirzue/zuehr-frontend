@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import HomePage from "./Pages/Home";
 import LoginPage from "./Pages/Auth/Login";
 import SignUpPage from "./Pages/Auth/SignUp";
+import ForgetPage from "./Pages/Auth/Forget";
 //import PrivateRoute from './components/PrivateRoute';
 //import PrivateRouteQueryString from './components/PrivateRouteQueryString';
 import {
@@ -62,9 +63,10 @@ function App() {
             <Route path='/Attendance/CreateShift' element={<CreateShift />} />
             <Route path='/Attendance/ShiftDetails' element={<ShiftDetails />} />
           </Route>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/Login' element={<LoginPage />} />
+          <Route path='/Home' element={<HomePage />} />
+          <Route path='/' element={<LoginPage />} />
           <Route path='/SignUp' element={<SignUpPage />} />
+          <Route path='/Forget' element={<ForgetPage />} />
         </Routes>
       </div>
     </Router>
