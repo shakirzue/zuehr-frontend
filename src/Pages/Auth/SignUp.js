@@ -59,7 +59,7 @@ const SignUp = (props) => {
                 </div>
             <Form className="card sign-up col-sm-4 mx-auto d-flex justify-content-center align-items-center" style={{ minHeight: "600px", backgroundColor: 'white' }}>
             <img src={logo} alt="Zue logo" width="35%"/>
-            <h2 className="mb-3">Sign Up</h2>
+            <h2 className="mt-2 mb-4">Sign Up</h2>
                 <Form.Group className="mb-3 col-sm-8" size="lg" controlId="email">
                
                 <Form.Control
@@ -80,7 +80,7 @@ const SignUp = (props) => {
                 />
                 </Form.Group>
 
-                <Form.Group className="mb-3 col-sm-8" size="lg" controlId="employeeNumber">
+                <Form.Group className="col-sm-8" size="lg" controlId="employeeNumber">
                
                 <Form.Control
                     autoFocus
@@ -91,7 +91,7 @@ const SignUp = (props) => {
                 />
                 </Form.Group>
 
-                <Form.Group className="mb-3 col-sm-8" size="lg" controlId="firstName">
+                {/* <Form.Group className="mb-3 col-sm-8" size="lg" controlId="firstName">
              
                 <Form.Control
                     autoFocus
@@ -111,7 +111,7 @@ const SignUp = (props) => {
                     value={surName}
                     onChange={(e) => setSurName(e.target.value)}
                 />
-                </Form.Group>
+                </Form.Group> */}
 
                 {/* <Form.Group className="mb-3 col-sm-8" size="lg" controlId="phone"> */}
           
@@ -124,7 +124,7 @@ const SignUp = (props) => {
                 /> */}
                 {/* </Form.Group> */}
 
-                <Form.Group className="col-sm-8" size="lg" controlId="timezone">
+                <Form.Group className="mb-2 col-sm-8" size="lg" controlId="timezone">
        
                 <Select name={'timezone'} id={'timezone'} options={lookups?.timezone} onChange={(name, value) => setTimezone(value)} />
                 {/* <Form.Control

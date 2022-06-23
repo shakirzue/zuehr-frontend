@@ -83,18 +83,19 @@ const HomePage = (props) => {
 
 
     return (
-        <div style={{ minHeight: "100vh", backgroundImage: backgroundColor }}>
+        <div className="width-set-cont" style={{ minHeight: "100vh", backgroundImage: backgroundColor }}>
             {   isAuthenticated ? <>
-                <ManagerAppbar drawerOption="" location="Home" />
+                <ManagerAppbar drawerOption="open" location="Home" />
                 <div
                     style={{
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
+                        
                     }}
                 >
                     <p style={{ fontSize: 14, marginLeft: -50 }} autoCapitalize>
-                        Click on the left Navigation bar to continue
+                        Click on the left Navigation bar to continue hello 123
                     </p>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '70vh' }}>
@@ -108,6 +109,10 @@ const HomePage = (props) => {
                         }}
                         alt="CPCGR LOGO"
                     />
+                    <div class="hello-world">
+                    <h2><a href="www.google.com">Hello World</a></h2>
+                    
+                    </div>
                 </div>
                 </>
                 :<>  

@@ -182,7 +182,7 @@ const EmployeeForm = props => {
 
     return (
         <div style={{ minHeight: "100vh", backgroundImage: backgroundColor }}>
-            <ManagerAppBar drawerOption={""} location="Home" />
+            <ManagerAppBar drawerOption={"open"} location="Home" />
             <Container className='employee-form-container'>
                 <h4 className='panel-form-title'>Employee Information</h4>
                 <Card className='employee-form-card-container'>

@@ -65,7 +65,7 @@ const Login = (props) => {
                             type="email"
                             placeholder={'Enter Email or ID'}
                             value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={(e) => setEmail(e.target.value)} 
                         />
                         </Form.Group>
                         <Form.Group className="mb-3 col-sm-8" size="lg" controlId="password">

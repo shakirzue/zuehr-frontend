@@ -16,7 +16,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import LogoutIcon from "@mui/icons-material/Logout";
 import ListItemButton from "@mui/material/ListItemButton";
 import { mainAppBarColor, mainAppBarTextColor } from "../Constants";
-import NhmsBanner from "../Images/NhmsBanner.png";
+import logo from "../Images/logo.png";
 import GroupIcon from "@mui/icons-material/Group";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
@@ -36,6 +36,7 @@ import { authenticationService } from '../services/authentication.service';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    width:1264,
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -46,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
   list: {
-    width: 250,
+    width: 256,
   },
   fullList: {
     width: "auto",
@@ -161,11 +162,12 @@ const ManagerAppBar = (props) => {
   return (
 
     <div className={classes.root}>
-      <Drawer open={drawer} onClose={toggleDrawer(false)}>
+      <Drawer open={drawer} onClose={toggleDrawer(false)} >
         <div
           className={classes.list}
           style={{
             display: "flex",
+
             flex: 1,
             flexDirection: "column",
             justifyContent: "space-between",
@@ -174,15 +176,15 @@ const ManagerAppBar = (props) => {
         >
           <List>
             <Link
-              to="/"
+              to="/Home"
               style={{ textDecoration: "none", color: "black" }}
             >
               <ListItemButton>
                 <ListItemIcon>
-                  <ListAltIcon color="primary" />
+                  <ListAltIcon color="#ff0000" />
                 </ListItemIcon>
                 <ListItemText
-                  primary="Home"
+                  primary="Dashboard"
                   style={{ textDecoration: "none", color: "black" }}
                   classes={{ primary: classes.listItemText }}
                 />
@@ -191,7 +193,7 @@ const ManagerAppBar = (props) => {
             <div>
               <ListItemButton onClick={handleHrmApiClick}>
                 <ListItemIcon>
-                  <GroupIcon style={{ color: "#3F51B5" }} />
+                  <GroupIcon style={{ color: "#ff0000" }} />
                 </ListItemIcon>
                 <ListItemText primary="HRM API" />
                 {hrmapimenuopen ? <ExpandLess /> : <ExpandMore />}
@@ -212,14 +214,13 @@ const ManagerAppBar = (props) => {
                       />
                     </ListItemButton>
                   </Link>
-                  {/* : <></> */}
-                  {/* } */}
+                  
                 </List>
               </Collapse>
 
               <ListItemButton onClick={handleAttendanceClick}>
                 <ListItemIcon>
-                  <GroupIcon style={{ color: "#3F51B5" }} />
+                  <GroupIcon style={{ color: "#ff0000" }} />
                 </ListItemIcon>
                 <ListItemText primary="Attendance" />
                 {hrmattendanceopen ? <ExpandLess /> : <ExpandMore />}
@@ -286,7 +287,7 @@ const ManagerAppBar = (props) => {
           <div onClick={handlePasswordChange}>
             <ListItem button>
               <ListItemIcon>
-                <LogoutIcon color="primary" style={{ color: "#3F51B5" }} />
+                <LogoutIcon color="primary" style={{ color: "#ff0000" }} />
               </ListItemIcon>
               <ListItemText
                 primary="Change/Reset Password"
@@ -296,7 +297,7 @@ const ManagerAppBar = (props) => {
           <div onClick={handleLogOut}>
             <ListItem button>
               <ListItemIcon>
-                <LogoutIcon color="primary" style={{ color: "#3F51B5" }} />
+                <LogoutIcon color="primary" style={{ color: "#ff0000" }} />
               </ListItemIcon>
               <ListItemText
                 primary="Sign Out"
@@ -308,7 +309,7 @@ const ManagerAppBar = (props) => {
       </Drawer>
       <AppBar position="static" style={{ backgroundImage: mainAppBarColor }}>
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
@@ -316,34 +317,33 @@ const ManagerAppBar = (props) => {
             onClick={() => setDrawer(true)}
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <img
-            src={NhmsBanner}
+            src={logo}
             style={{
               width: "40px",
               height: "100%",
               objectFit: "contain",
               // paddingLeft: 50,
             }}
-            alt="NHMS LOGO"
+            alt="LOGO"
           />
           <div className={classes.title}>
-            <Link
-              to="/manager"
+            <h1
               style={{
                 fontSize: 14,
                 textDecoration: "none",
                 color: mainAppBarTextColor,
               }}
             >
-              CPCGR PORTAL
-            </Link>
+              HRMS PORTAL
+            </h1>
 
             <Typography style={{ fontSize: 12, color: mainAppBarTextColor }}>
               {/* {location} */}
             </Typography>
           </div>
-          <Button color="inherit" onClick={handleNameClick} startIcon={<PersonIcon />}>
+          {/* <Button color="inherit" onClick={handleNameClick} startIcon={<PersonIcon />}>
             <Typography
               variant="p"
               className={classes.title}
@@ -353,7 +353,11 @@ const ManagerAppBar = (props) => {
               <br />
               {currentClient}
             </Typography>
-          </Button>
+          </Button> */}
+     
+          <div class="User-info" startIcon={<PersonIcon />} onClick={handleNameClick} style={{ fontSize: 12, color: mainAppBarTextColor }}>
+          <a ><i class="fa fa-user"></i>Hello</a>
+          </div>
           <Menu
             id="basic-menu"
             anchorEl={anchorEl}

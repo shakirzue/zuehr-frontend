@@ -172,7 +172,7 @@ function ClockIn() {
 
     return (
         <div>
-            <ManagerAppBar drawerOption={""} location="Home" />
+            <ManagerAppBar drawerOption={"open"} location="Home" />
             <ToastContainer
                 position="top-right"
                 autoClose={5000}

@@ -226,3 +226,19 @@ form.card select#timezone{
   box-shadow: 1px 2px 4px #171414;
   border-radius: 9px;
 }
+.MuiButton-root.Mui-disabled {
+  background-color: rgb(255 0 0 / 44%) !important;
+}
+header.MuiPaper-root {
+  background-color: var(--primary-color) !important;
+  border-radius: 4px !important;
+}
+.MuiDrawer-root.MuiDrawer-modal{
+  position:static !important;
+}
+/* .App.col-sm-10{
+  float: right !important;
+} */
+header.MuiPaper-root.MuiAppBar-root.MuiAppBar-positionStatic.MuiAppBar-colorPrimary.MuiPaper-elevation4 {
+  margin-left: 256px !important;
+}

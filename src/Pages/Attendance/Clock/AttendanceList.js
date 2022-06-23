@@ -49,7 +49,7 @@ const AttendanceList = props => {
 
     return (
         <div style={{ minHeight: "100vh", backgroundImage: backgroundColor }}>
-            <ManagerAppBar drawerOption={""} location="Home" />
+            <ManagerAppBar drawerOption={"open"} location="Home" />
             <Container className='employee-form-container'>
                 <Card className='employee-form-card-container'>
                     <div className=''>

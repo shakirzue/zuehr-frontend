@@ -9,7 +9,7 @@ export const backgroundColor =
 export const buttonColor = "#303F9F";
 export const buttonTextColor = "#fff";
 export const mainAppBarColor =
-  "linear-gradient(to right top, #213065 ,#213065)";
+  "linear-gradient(to right top, #ff0000 ,#ff0000)";
 export const mainAppBarTextColor = "#fff";
 export const subAppBarColor = "#1888C6";
 export const subAppBarTextColor = "#fff ";
