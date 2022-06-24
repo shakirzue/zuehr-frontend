@@ -98,22 +98,7 @@ const HomePage = (props) => {
                         Click on the left Navigation bar to continue hello 123
                     </p>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '70vh' }}>
-                    <img
-                        src={logo}
-                        style={{
-                            width: "100%",
-                            height: "100%",
-                            objectFit: "contain",
-                            // paddingLeft: 50,
-                        }}
-                        alt="CPCGR LOGO"
-                    />
-                    <div class="hello-world">
-                    <h2><a href="www.google.com">Hello World</a></h2>
-                    
-                    </div>
-                </div>
+                
                 </>
                 :<>  
                 <div className="hello">         
@@ -140,5 +125,4 @@ const HomePage = (props) => {
         </div>
     );
 }
-
 export default HomePage;

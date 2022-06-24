@@ -17,6 +17,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import ListItemButton from "@mui/material/ListItemButton";
 import { mainAppBarColor, mainAppBarTextColor } from "../Constants";
 import logo from "../Images/logo.png";
+import profile from "../Images/profile.png";
 import GroupIcon from "@mui/icons-material/Group";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
@@ -32,11 +33,13 @@ import { history } from "../helpers/history";
 import { store } from "../redux/store";
 import { useSelector } from "react-redux";
 import { authenticationService } from '../services/authentication.service';
+import NotificationsIcon from '@material-ui/icons/Notifications';
+import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    width:1264,
+    width:'100%',
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -175,6 +178,31 @@ const ManagerAppBar = (props) => {
           }}
         >
           <List>
+            <div className="User-Info">
+       
+              <ListItemButton style={{ textDecoration: "none", color: "black", borderBottom: "2px solid #ddd", paddingBottom: "20", fontWeight: "700", margin: "0 15px" }}>
+              <img
+            src={profile}
+            style={{
+              width: "40px",
+              height: "40px",
+              objectFit: "contain",
+              borderRadius: "50%",
+              marginRight: 15,
+              marginLeft: -15,
+            }}
+            alt="User Profile"
+          />
+                <ListItemText
+                  primary="Zue User"
+                  style={{ textDecoration: "none", color: "black", }}
+                  classes={{ primary: classes.listItemText }}
+                />
+              </ListItemButton>
+          
+            </div>
+
+            <div className="SideMenu">
             <Link
               to="/Home"
               style={{ textDecoration: "none", color: "black" }}
@@ -193,9 +221,9 @@ const ManagerAppBar = (props) => {
             <div>
               <ListItemButton onClick={handleHrmApiClick}>
                 <ListItemIcon>
-                  <GroupIcon style={{ color: "#ff0000" }} />
+                  <ListAltIcon style={{ color: "#ff0000" }} />
                 </ListItemIcon>
-                <ListItemText primary="HRM API" />
+                <ListItemText primary="Employee Setup" />
                 {hrmapimenuopen ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
               <Collapse in={hrmapimenuopen} timeout="auto" unmountOnExit>
@@ -222,7 +250,7 @@ const ManagerAppBar = (props) => {
                 <ListItemIcon>
                   <GroupIcon style={{ color: "#ff0000" }} />
                 </ListItemIcon>
-                <ListItemText primary="Attendance" />
+                <ListItemText primary="Attendance & Leave Management" />
                 {hrmattendanceopen ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
               <Collapse in={hrmattendanceopen} timeout="auto" unmountOnExit>
@@ -281,10 +309,46 @@ const ManagerAppBar = (props) => {
                 </List>
               </Collapse>
 
-
+              <ListItemButton onClick={handleAttendanceClick}>
+                <ListItemIcon>
+                  <GroupIcon style={{ color: "#ff0000" }} />
+                </ListItemIcon>
+                <ListItemText primary="Talent Acquisition" />
+                {hrmattendanceopen ? <ExpandLess /> : <ExpandMore />}
+              </ListItemButton>     
+              <ListItemButton onClick={handleAttendanceClick}>
+                <ListItemIcon>
+                  <GroupIcon style={{ color: "#ff0000" }} />
+                </ListItemIcon>
+                <ListItemText primary="Performance & Talent Management" />
+                {hrmattendanceopen ? <ExpandLess /> : <ExpandMore />}
+              </ListItemButton>
+              <ListItemButton onClick={handleAttendanceClick}>
+                <ListItemIcon>
+                  <GroupIcon style={{ color: "#ff0000" }} />
+                </ListItemIcon>
+                <ListItemText primary="HR & People Analytics" />
+                {hrmattendanceopen ? <ExpandLess /> : <ExpandMore />}
+              </ListItemButton> 
+              <ListItemButton onClick={handleAttendanceClick}>
+                <ListItemIcon>
+                  <GroupIcon style={{ color: "#ff0000" }} />
+                </ListItemIcon>
+                <ListItemText primary="Payroll Compensation & Benefits"/>
+                {hrmattendanceopen ? <ExpandLess /> : <ExpandMore />}
+              </ListItemButton> 
+              <ListItemButton onClick={handleAttendanceClick}>
+                <ListItemIcon>
+                  <GroupIcon style={{ color: "#ff0000" }} />
+                </ListItemIcon>
+                <ListItemText primary="People Management" />
+                {hrmattendanceopen ? <ExpandLess /> : <ExpandMore />}
+              </ListItemButton>   
+            </div>
             </div>
           </List>
-          <div onClick={handlePasswordChange}>
+          
+          {/* <div onClick={handlePasswordChange}>
             <ListItem button>
               <ListItemIcon>
                 <LogoutIcon color="primary" style={{ color: "#ff0000" }} />
@@ -293,7 +357,7 @@ const ManagerAppBar = (props) => {
                 primary="Change/Reset Password"
               />
             </ListItem>
-          </div>
+          </div> */}
           <div onClick={handleLogOut}>
             <ListItem button>
               <ListItemIcon>
@@ -318,21 +382,13 @@ const ManagerAppBar = (props) => {
           >
             <MenuIcon />
           </IconButton> */}
-          <img
-            src={logo}
-            style={{
-              width: "40px",
-              height: "100%",
-              objectFit: "contain",
-              // paddingLeft: 50,
-            }}
-            alt="LOGO"
-          />
-          <div className={classes.title}>
+         
+          <div className="header-bar col-sm-10">
             <h1
               style={{
-                fontSize: 14,
+                fontSize: 20,
                 textDecoration: "none",
+                textAlign: "left",
                 color: mainAppBarTextColor,
               }}
             >
@@ -343,21 +399,32 @@ const ManagerAppBar = (props) => {
               {/* {location} */}
             </Typography>
           </div>
-          {/* <Button color="inherit" onClick={handleNameClick} startIcon={<PersonIcon />}>
-            <Typography
-              variant="p"
-              className={classes.title}
-              style={{ fontSize: 12, color: mainAppBarTextColor }}
-            >
-              {userLoggedIn.name}
-              <br />
-              {currentClient}
-            </Typography>
-          </Button> */}
-     
-          <div class="User-info" startIcon={<PersonIcon />} onClick={handleNameClick} style={{ fontSize: 12, color: mainAppBarTextColor }}>
-          <a ><i class="fa fa-user"></i>Hello</a>
-          </div>
+         
+     <div className="user-notify col-sm-2 text-right float-right">
+       
+                <ListItemIcon>
+                  <SearchIcon/>
+                </ListItemIcon>
+                <ListItemIcon>
+                  <NotificationsIcon/>
+                </ListItemIcon>
+                <ListItemIcon>
+                  <PersonIcon/>
+                </ListItemIcon>
+                {/* <div class="dropdown show">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    link
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div> */}
+               
+     </div>
+        
           <Menu
             id="basic-menu"
             anchorEl={anchorEl}
