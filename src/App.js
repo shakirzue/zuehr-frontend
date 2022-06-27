@@ -62,7 +62,6 @@ function App() {
             <Route path='/Attendance/ShiftForm' element={<ShiftForm />} />
             <Route path='/Attendance/CreateShift' element={<CreateShift />} />
             <Route path='/Attendance/ShiftDetails' element={<ShiftDetails />} />
-
           </Route>
           <Route path='/Home' element={<HomePage />} />
           <Route path='/' element={<LoginPage />} />
