@@ -143,7 +143,7 @@ body {
 
 .tab-section-card {
   background: #fff;
-  padding: 15px;
+  padding: 14px;
 }
 
 .tab-section-card-button {
@@ -250,19 +250,18 @@ header.MuiPaper-root {
   font-size: 15px !important;
 }
 .SideMenu .css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root:hover, .css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root:active {
-  background-color: var(--primary-color) !important;
+  /* background-color: #ff00002b !important; */
   border-radius: 20px;
-  color: #fff !important;
+  /* color: #fff !important; */
 }
 .SideMenu .css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root:hover .MuiListItemIcon-root svg{
-  color: #fff !important;
+  color: var(--primary-color) !important;
 }
 
-
 .css-ishquk-MuiButtonBase-root-MuiListItemButton-root:hover, .css-ishquk-MuiButtonBase-root-MuiListItemButton-root:active{
-  background-color: var(--primary-color) !important;
+  /* background-color: var(--primary-color) !important; */
   border-radius: 20px;
-  color: #fff !important;
+  /* color: #fff !important; */
 }
 .login-background {
   width: 100% !important;
@@ -275,8 +274,48 @@ header.MuiPaper-root {
   z-index: 1;
 }
 .MuiListItemIcon-root {
-  color: #fff !important;
+  color: #444 !important;
 }
 .SideMenu svg.MuiSvgIcon-root {
+  color: #ff0000;
+}
+.MuiCollapse-wrapperInner.MuiCollapse-vertical.css-9l5vo-MuiCollapse-wrapperInner .MuiList-root {
+  padding-left: 40px;
+}
+.MuiCollapse-wrapperInner.MuiCollapse-vertical.css-9l5vo-MuiCollapse-wrapperInner .MuiList-root a {
+  color: var(--primary-color) !important;
+}
+.MuiListItemIcon-root {
+  min-width: 50px !important;
+}
+
+.top-card-banner{
+background-image: url('/src/Images/hrms.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+min-height:200px;
+border-radius: 8px;
+-webkit-box-shadow: 1px 3px 5px #171414;
+box-shadow: 1px 3px 5px #171414;
+}
+
+.top-card-info h2, .top-card-info h4{
+ color:#fff;
+}
+.user-notify svg.MuiSvgIcon-root {
+  color: #fff;
+}
+.MuiListItemButton-root.MuiListItemButton-gutters.MuiButtonBase-root.active.css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+.graph .card {
+  box-shadow: 1px 3
+  2px 4px #171414;
+  -webkit-box-shadow: 1px 2px 4px #171414;
+}
+.table-dashboard.card-header h3 {
+  font-size: 20px;
+}
+table td a {
   color: var(--primary-color);
 }

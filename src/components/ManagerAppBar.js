@@ -34,7 +34,7 @@ import { store } from "../redux/store";
 import { useSelector } from "react-redux";
 import { authenticationService } from '../services/authentication.service';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import SearchIcon from '@material-ui/icons/Search';
+// import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -203,11 +203,13 @@ const ManagerAppBar = (props) => {
             </div>
 
             <div className="SideMenu">
+           
+            <div>
             <Link
               to="/Home"
               style={{ textDecoration: "none", color: "black" }}
             >
-              <ListItemButton>
+              <ListItemButton className="active">
                 <ListItemIcon>
                   <ListAltIcon color="#ff0000" />
                 </ListItemIcon>
@@ -218,7 +220,46 @@ const ManagerAppBar = (props) => {
                 />
               </ListItemButton>
             </Link>
-            <div>
+            <ListItemButton onClick={handleHrmApiClick}>
+                <ListItemIcon>
+                  <ListAltIcon style={{ color: "#ff0000" }} />
+                </ListItemIcon>
+                <ListItemText primary="Daily Tasks" />
+                {hrmapimenuopen ? <ExpandLess /> : <ExpandMore />}
+              </ListItemButton>
+              <Collapse in={hrmapimenuopen} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  {/* {
+                    PermissionProvider({ permissionDetails: permissionDetails, moduleName: ModuleName.DMEService, permissionLevel: "Read" }) ? */}
+
+                  <Link
+                    to="#"
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemText
+                        primary="Daily Attendance"
+                        classes={{ primary: classes.listItemText }}
+                      />
+                    </ListItemButton>
+                  </Link>
+                  <Link
+                    to="#"
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    <ListItemButton sx={{ pl: 4 }}>
+                      <ListItemText
+                        primary="Daily Activity"
+                        classes={{ primary: classes.listItemText }}
+                      />
+                    </ListItemButton>
+                  </Link>
+                </List>
+              </Collapse>
+
+
+
+
               <ListItemButton onClick={handleHrmApiClick}>
                 <ListItemIcon>
                   <ListAltIcon style={{ color: "#ff0000" }} />
@@ -250,7 +291,7 @@ const ManagerAppBar = (props) => {
                 <ListItemIcon>
                   <GroupIcon style={{ color: "#ff0000" }} />
                 </ListItemIcon>
-                <ListItemText primary="Attendance & Leave Management" />
+                <ListItemText primary="Attendance & Leave" />
                 {hrmattendanceopen ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
               <Collapse in={hrmattendanceopen} timeout="auto" unmountOnExit>
@@ -309,40 +350,40 @@ const ManagerAppBar = (props) => {
                 </List>
               </Collapse>
 
-              <ListItemButton onClick={handleAttendanceClick}>
+              <ListItemButton>
                 <ListItemIcon>
                   <GroupIcon style={{ color: "#ff0000" }} />
                 </ListItemIcon>
                 <ListItemText primary="Talent Acquisition" />
-                {hrmattendanceopen ? <ExpandLess /> : <ExpandMore />}
+              
               </ListItemButton>     
-              <ListItemButton onClick={handleAttendanceClick}>
+              <ListItemButton>
                 <ListItemIcon>
                   <GroupIcon style={{ color: "#ff0000" }} />
                 </ListItemIcon>
-                <ListItemText primary="Performance & Talent Management" />
-                {hrmattendanceopen ? <ExpandLess /> : <ExpandMore />}
+                <ListItemText primary="Performance & Talent" />
+           
               </ListItemButton>
-              <ListItemButton onClick={handleAttendanceClick}>
+              <ListItemButton>
                 <ListItemIcon>
                   <GroupIcon style={{ color: "#ff0000" }} />
                 </ListItemIcon>
-                <ListItemText primary="HR & People Analytics" />
-                {hrmattendanceopen ? <ExpandLess /> : <ExpandMore />}
+                <ListItemText primary="HR & Employee Data" />
+               
               </ListItemButton> 
-              <ListItemButton onClick={handleAttendanceClick}>
+              <ListItemButton>
                 <ListItemIcon>
                   <GroupIcon style={{ color: "#ff0000" }} />
                 </ListItemIcon>
-                <ListItemText primary="Payroll Compensation & Benefits"/>
-                {hrmattendanceopen ? <ExpandLess /> : <ExpandMore />}
+                <ListItemText primary="Payroll Compensation"/>
+           
               </ListItemButton> 
-              <ListItemButton onClick={handleAttendanceClick}>
+              <ListItemButton>
                 <ListItemIcon>
                   <GroupIcon style={{ color: "#ff0000" }} />
                 </ListItemIcon>
                 <ListItemText primary="People Management" />
-                {hrmattendanceopen ? <ExpandLess /> : <ExpandMore />}
+             
               </ListItemButton>   
             </div>
             </div>
@@ -390,6 +431,7 @@ const ManagerAppBar = (props) => {
                 textDecoration: "none",
                 textAlign: "left",
                 color: mainAppBarTextColor,
+                paddingLeft: "25px",
               }}
             >
               HRMS PORTAL
@@ -402,9 +444,9 @@ const ManagerAppBar = (props) => {
          
      <div className="user-notify col-sm-2 text-right float-right">
        
-                <ListItemIcon>
+                {/* <ListItemIcon>
                   <SearchIcon/>
-                </ListItemIcon>
+                </ListItemIcon> */}
                 <ListItemIcon>
                   <NotificationsIcon/>
                 </ListItemIcon>
@@ -450,5 +492,11 @@ const ManagerAppBar = (props) => {
     </div>
   );
 };
+
+
+
+
+
+
 
 export default ManagerAppBar;
