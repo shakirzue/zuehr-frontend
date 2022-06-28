@@ -84,9 +84,9 @@ const Login = (props) => {
             <Button className="col-sm-8 primary-btn mb-3" block="true" size="lg" type="submit" disabled={!validateForm()} onClick={handleSubmitNonCpcgrLogin}>
                     Login
             </Button>
-            <div class="reg mb-3">
+            {/* <div class="reg mb-3">
                     Not Registered? <a href="/SignUp">Create Account</a>
-                </div>
+                </div> */}
             </Form>
 
             </div>

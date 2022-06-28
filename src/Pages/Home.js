@@ -11,13 +11,14 @@ import { getCookieNonCpcgrAuth } from "../helpers/utils";
 import { authenticationService } from "../services/authentication.service";
 import Form from "react-bootstrap/Form";
 import { Bar } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 
 
 const HomePage = (props) => {
     const state = {
         labels: ['January', 'February', 'March',
-            'April'],
+        'April', 'May', 'June', 'July', 'August', 'September', 'October'],
         datasets: [
             {
                 label: 'Employees',
@@ -27,7 +28,7 @@ const HomePage = (props) => {
                 borderColor: 'rgba(0,0,0,1)',
                 borderWidth: 2,
                 borderRadius: 8,
-                data: [65, 59, 70, 71]
+                data: [65, 35, 45, 50, 44, 32, 51, 56, 35, 30, 40]
             }
         ]
     }
@@ -36,7 +37,7 @@ const HomePage = (props) => {
 
     const statee = {
         labels: ['January', 'February', 'March',
-            'April'],
+            'April', 'May', 'June', 'July', 'August', 'September', 'October'],
         datasets: [
             {
                 label: 'Managers',
@@ -46,7 +47,7 @@ const HomePage = (props) => {
                 borderColor: 'rgba(0,0,0,1)',
                 borderWidth: 2,
                 borderRadius: 8,
-                data: [11, 19, 20, 16]
+                data: [11, 19, 20, 16, 17, 19, 21, 23, 17, 16]
             }
         ]
     }
@@ -131,7 +132,7 @@ const HomePage = (props) => {
                 <ManagerAppbar drawerOption="open" location="Home" />
                 <div className='container'>
                     <div className='main-dashboard col-sm-12 pt-3'>
-                        <h3 style={{ textAlign: "left" }}>Dashboard</h3>
+                        <h3 className="mb-0" style={{ textAlign: "left" }}>Dashboard</h3>
                         <div className='row mb-3'>
 
                             <div className='card dashboard col-sm-4 p-3 border-0'>
@@ -171,7 +172,7 @@ const HomePage = (props) => {
                         <div className='row'>
                             <div className='graph col-sm-6'>
                                 <div className='card'>
-                                    <Bar
+                                    <Line
                                         data={state}
                                         options={{
                                             title: {
@@ -210,20 +211,23 @@ const HomePage = (props) => {
                             </div>
 
                         </div>
-
-                        <div className='row mt-4'>
-                            <div className='col-sm-12'>
-                                <div class="card">
-                                    <div class="table-dashboard card-header bg-light border-0">
-                                        <h3 class="card-title">Pending Requests</h3>
+                        
+                        <div className='row mt-2'>
+                        <div class="table-dashboard card-header bg-transparent border-0 d-flex">
+                                        <h3 class="card-title">Pending Tasks</h3>
                                     </div>
+                            <div className='col-sm-6'>
+                                <div class="card">            
                                     <div class="card-body table-responsive p-0">
+                                    <div class="table-dashboard card-header bg-light border-0">
+                                        <h4 class="card-title">Leave Approvals</h4>
+                                    </div>
                                         <table class="table table-striped table-valign-middle">
                                             <thead>
                                                 <tr>
-                                                    <th>Tasks</th>
-                                                    <th>Prices</th>
-                                                    <th>Sales</th>
+                                                <th>Employee</th>
+                                                    <th>Dept</th>
+                                                    <th>Date</th>
                                                     <th>Actions</th>
                                                 </tr>
                                             </thead>
@@ -291,19 +295,39 @@ const HomePage = (props) => {
                                                 </a>
                                                     </td>
                                                 </tr>
+                                             
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='col-sm-6'>
+                                <div class="card">            
+                                    <div class="card-body table-responsive p-0">
+                                    <div class="table-dashboard card-header bg-light border-0">
+                                        <h4 class="card-title">Attendance Management</h4>
+                                    </div>
+                                        <table class="table table-striped table-valign-middle">
+                                            <thead>
+                                                <tr>
+                                                    <th>Employee</th>
+                                                    <th>Dept</th>
+                                                    <th>Date</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
                                                 <tr>
                                                     <td>
-
-                                                        Perfect Item
-                                                        <span class="badge bg-danger">NEW</span>
+                                                        Some Product
                                                     </td>
-                                                    <td>$199 USD</td>
+                                                    <td>$13 USD</td>
                                                     <td>
                                                         <small class="text-success mr-1">
-                                                            <i class="fa fa-arrow-up"></i>
-                                                            63%
+                                                            <i class="fas fa-arrow-up"></i>
+                                                            12%
                                                         </small>
-                                                        87 Sold
+                                                        12,000 Sold
                                                     </td>
                                                     <td>
                                                     <a href="#">
@@ -314,6 +338,49 @@ const HomePage = (props) => {
                                                 </a>
                                                     </td>
                                                 </tr>
+                                                <tr>
+                                                    <td>
+                                                        Another Product
+                                                    </td>
+                                                    <td>$29 USD</td>
+                                                    <td>
+                                                        <small class="text-warning mr-1">
+                                                            <i class="fas fa-arrow-down"></i>
+                                                            0.5%
+                                                        </small>
+                                                        123,234 Sold
+                                                    </td>
+                                                    <td>
+                                                    <a href="#">
+                                                    <EditIcon/>
+                                                </a>
+                                                <a href="#">
+                                                    <DeleteIcon/>
+                                                </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        Amazing Product
+                                                    </td>
+                                                    <td>$1,230 USD</td>
+                                                    <td>
+                                                        <small class="text-danger mr-1">
+                                                            <i class="fa fa-arrow-down"></i>
+                                                            3%
+                                                        </small>
+                                                        198 Sold
+                                                    </td>
+                                                    <td>
+                                                    <a href="#">
+                                                    <EditIcon/>
+                                                </a>
+                                                <a href="#">
+                                                    <DeleteIcon/>
+                                                </a>
+                                                    </td>
+                                                </tr>
+                                               
                                             </tbody>
                                         </table>
                                     </div>

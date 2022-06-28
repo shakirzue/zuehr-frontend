@@ -34,6 +34,17 @@ import { store } from "../redux/store";
 import { useSelector } from "react-redux";
 import { authenticationService } from '../services/authentication.service';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined';
+import NaturePeopleOutlinedIcon from '@material-ui/icons/NaturePeopleOutlined';
+import DashboardOutlinedIcon from '@material-ui/icons/DashboardOutlined';
+import ContactsOutlinedIcon from '@material-ui/icons/ContactsOutlined';
+import AssessmentOutlinedIcon from '@material-ui/icons/AssessmentOutlined';
+import ListOutlinedIcon from '@material-ui/icons/ListOutlined';
+import AccountBalanceWalletOutlinedIcon from '@material-ui/icons/AccountBalanceWalletOutlined';
+import AttributionOutlinedIcon from '@mui/icons-material/AttributionOutlined';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
+
 // import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles((theme) => ({
@@ -211,7 +222,7 @@ const ManagerAppBar = (props) => {
             >
               <ListItemButton className="active">
                 <ListItemIcon>
-                  <ListAltIcon color="#ff0000" />
+                  <DashboardOutlinedIcon color="var(--primary-color)" />
                 </ListItemIcon>
                 <ListItemText
                   primary="Dashboard"
@@ -222,7 +233,7 @@ const ManagerAppBar = (props) => {
             </Link>
             <ListItemButton onClick={handleHrmApiClick}>
                 <ListItemIcon>
-                  <ListAltIcon style={{ color: "#ff0000" }} />
+                  <AssignmentOutlinedIcon style={{ color: "var(--primary-color)" }} />
                 </ListItemIcon>
                 <ListItemText primary="Daily Tasks" />
                 {hrmapimenuopen ? <ExpandLess /> : <ExpandMore />}
@@ -258,11 +269,9 @@ const ManagerAppBar = (props) => {
               </Collapse>
 
 
-
-
               <ListItemButton onClick={handleHrmApiClick}>
                 <ListItemIcon>
-                  <ListAltIcon style={{ color: "#ff0000" }} />
+                  <NaturePeopleOutlinedIcon style={{ color: "var(--primary-color)" }} />
                 </ListItemIcon>
                 <ListItemText primary="Employee Setup" />
                 {hrmapimenuopen ? <ExpandLess /> : <ExpandMore />}
@@ -289,7 +298,7 @@ const ManagerAppBar = (props) => {
 
               <ListItemButton onClick={handleAttendanceClick}>
                 <ListItemIcon>
-                  <GroupIcon style={{ color: "#ff0000" }} />
+                  <ContactsOutlinedIcon style={{ color: "var(--primary-color)" }} />
                 </ListItemIcon>
                 <ListItemText primary="Attendance & Leave" />
                 {hrmattendanceopen ? <ExpandLess /> : <ExpandMore />}
@@ -352,35 +361,35 @@ const ManagerAppBar = (props) => {
 
               <ListItemButton>
                 <ListItemIcon>
-                  <GroupIcon style={{ color: "#ff0000" }} />
+                  <AttributionOutlinedIcon style={{ color: "var(--primary-color)" }} />
                 </ListItemIcon>
                 <ListItemText primary="Talent Acquisition" />
               
               </ListItemButton>     
               <ListItemButton>
                 <ListItemIcon>
-                  <GroupIcon style={{ color: "#ff0000" }} />
+                  <AssessmentOutlinedIcon style={{ color: "var(--primary-color)" }} />
                 </ListItemIcon>
                 <ListItemText primary="Performance & Talent" />
            
               </ListItemButton>
               <ListItemButton>
                 <ListItemIcon>
-                  <GroupIcon style={{ color: "#ff0000" }} />
+                  <ListOutlinedIcon style={{ color: "var(--primary-color)" }} />
                 </ListItemIcon>
                 <ListItemText primary="HR & Employee Data" />
                
               </ListItemButton> 
               <ListItemButton>
                 <ListItemIcon>
-                  <GroupIcon style={{ color: "#ff0000" }} />
+                  <AccountBalanceWalletOutlinedIcon style={{ color: "var(--primary-color)" }} />
                 </ListItemIcon>
                 <ListItemText primary="Payroll Compensation"/>
            
               </ListItemButton> 
               <ListItemButton>
                 <ListItemIcon>
-                  <GroupIcon style={{ color: "#ff0000" }} />
+                  <GroupIcon style={{ color: "var(--primary-color)" }} />
                 </ListItemIcon>
                 <ListItemText primary="People Management" />
              
@@ -392,7 +401,7 @@ const ManagerAppBar = (props) => {
           {/* <div onClick={handlePasswordChange}>
             <ListItem button>
               <ListItemIcon>
-                <LogoutIcon color="primary" style={{ color: "#ff0000" }} />
+                <LogoutIcon color="primary" style={{ color: "var(--primary-color)" }} />
               </ListItemIcon>
               <ListItemText
                 primary="Change/Reset Password"
@@ -402,7 +411,7 @@ const ManagerAppBar = (props) => {
           <div onClick={handleLogOut}>
             <ListItem button>
               <ListItemIcon>
-                <LogoutIcon color="primary" style={{ color: "#ff0000" }} />
+                <LogoutIcon color="primary" style={{ color: "var(--primary-color)" }} />
               </ListItemIcon>
               <ListItemText
                 primary="Sign Out"
@@ -431,6 +440,7 @@ const ManagerAppBar = (props) => {
                 textDecoration: "none",
                 textAlign: "left",
                 color: mainAppBarTextColor,
+                marginBottom: "0",
                 paddingLeft: "25px",
               }}
             >
@@ -442,29 +452,23 @@ const ManagerAppBar = (props) => {
             </Typography>
           </div>
          
-     <div className="user-notify col-sm-2 text-right float-right">
+     <div className="user-notify col-sm-2 d-flex flex-lg-row-reverse">
        
                 {/* <ListItemIcon>
                   <SearchIcon/>
                 </ListItemIcon> */}
                 <ListItemIcon>
-                  <NotificationsIcon/>
+                  <PersonIcon/>
+                  <DropdownButton id="dropdown-basic-button" title="">  
+  <Dropdown.Item href="#">Edit Profile</Dropdown.Item>
+  <Dropdown.Item href="#">Something else</Dropdown.Item>
+  <Dropdown.Item onClick={handleLogOut}>Logout</Dropdown.Item>
+</DropdownButton>
                 </ListItemIcon>
                 <ListItemIcon>
-                  <PersonIcon/>
+                  <NotificationsIcon/>  
                 </ListItemIcon>
-                {/* <div class="dropdown show">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    link
-  </a>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-  </div>
-</div> */}
-               
+          
      </div>
         
           <Menu

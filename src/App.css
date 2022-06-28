@@ -250,18 +250,14 @@ header.MuiPaper-root {
   font-size: 15px !important;
 }
 .SideMenu .css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root:hover, .css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root:active {
-  /* background-color: #ff00002b !important; */
-  border-radius: 20px;
-  /* color: #fff !important; */
+  border-radius: 8px;
 }
 .SideMenu .css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root:hover .MuiListItemIcon-root svg{
   color: var(--primary-color) !important;
 }
 
 .css-ishquk-MuiButtonBase-root-MuiListItemButton-root:hover, .css-ishquk-MuiButtonBase-root-MuiListItemButton-root:active{
-  /* background-color: var(--primary-color) !important; */
   border-radius: 20px;
-  /* color: #fff !important; */
 }
 .login-background {
   width: 100% !important;
@@ -282,18 +278,15 @@ header.MuiPaper-root {
 .MuiCollapse-wrapperInner.MuiCollapse-vertical.css-9l5vo-MuiCollapse-wrapperInner .MuiList-root {
   padding-left: 40px;
 }
-.MuiCollapse-wrapperInner.MuiCollapse-vertical.css-9l5vo-MuiCollapse-wrapperInner .MuiList-root a {
-  color: var(--primary-color) !important;
-}
 .MuiListItemIcon-root {
   min-width: 50px !important;
 }
 
 .top-card-banner{
-background-image: url('/src/Images/hrms.jpg');
+background-image: url('/src/Images/management.png');
 background-size: cover;
 background-repeat: no-repeat;
-min-height:200px;
+min-height:160px;
 border-radius: 8px;
 -webkit-box-shadow: 1px 3px 5px #171414;
 box-shadow: 1px 3px 5px #171414;
@@ -301,21 +294,30 @@ box-shadow: 1px 3px 5px #171414;
 
 .top-card-info h2, .top-card-info h4{
  color:#fff;
+ text-decoration: underline;
 }
 .user-notify svg.MuiSvgIcon-root {
   color: #fff;
 }
 .MuiListItemButton-root.MuiListItemButton-gutters.MuiButtonBase-root.active.css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root {
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 .graph .card {
   box-shadow: 1px 3
   2px 4px #171414;
   -webkit-box-shadow: 1px 2px 4px #171414;
 }
-.table-dashboard.card-header h3 {
-  font-size: 20px;
-}
 table td a {
-  color: var(--primary-color);
+  color: #171414;
+}
+table td a:hover {
+  color: #444;
+}
+.MuiToolbar-regular {
+  min-height: 56px !important;
+}
+button#dropdown-basic-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
 }
