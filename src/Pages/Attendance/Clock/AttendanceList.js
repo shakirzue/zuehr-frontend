@@ -48,46 +48,56 @@ const AttendanceList = props => {
     }, [attendance])
 
     return (
-        <div style={{ minHeight: "100vh", backgroundImage: backgroundColor }}>
-            <ManagerAppBar drawerOption={"open"} location="Home" />
+        <div style={{ height: "100vh", backgroundColor: "#f4f4f4", overflow: "scroll" }}>
+            <ManagerAppBar drawerOption={""} location="Home" />
             <Container className='employee-form-container'>
+            <div className='main-dashboard col-sm-12'>
+                    <h3 className="mb-3" style={{ textAlign: "left" }}>Attendance History</h3>
+                </div>
                 <Card className='employee-form-card-container'>
-                    <div className=''>
-                        <h1 className='center' style={{ color: '#0d6efd' }}>Current Month Attendance History</h1>
-                    </div>
-
+                    
                     <form onSubmit={searchData}>
                         <div className='row'>
 
-                            <div className="col-md-3">
+                        <div className="col-sm-12 col-md-3" style={{ paddingTop: 36 }}>
+                                <div class="dt-buttons btn-group d-flex">   
+                                <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Excel</span></button> 
+                                <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>PDF</span></button> 
+                                <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1" type="button"><span>Print</span></button> 
+                                </div>
+                            </div>
+
+                            <div className="col-sm-12 col-md-4">
                                 <div className="select-component-container">
                                     <label className="select-component-label form-label" for="family_dob">From Date</label>
                                     <input name="from_date" type="date" value={dateFilter.from_date} onChange={handleInputs} className="select-component-item form-control" />
                                 </div>
                             </div>
 
-                            <div className="col-md-3"><div class="select-component-container">
-                                <label className="select-component-label form-label" for="family_dob">To Date</label>
-                                <input name="to_date" type="date" value={dateFilter.to_date} onChange={handleInputs} className="select-component-item form-control" />
-                            </div>
+                            <div className="col-sm-12 col-md-4">
+                                <div class="select-component-container">
+                                    <label className="select-component-label form-label" for="family_dob">To Date</label>
+                                    <input name="to_date" type="date" value={dateFilter.to_date} onChange={handleInputs} className="select-component-item form-control" />
+                                </div>
                             </div>
 
-                            <div className="col-md-3">
+                            <div className="col-sm-12 col-md-1">
                                 <div class="select-component-container">
-                                    <button type="submit" className="btn btn-primary btn-sm" style={{ marginTop: 35 }}>Search</button>
+                                    <button type="submit" className="btn btn-primary btn-md" style={{ marginTop: 35 }}>Search</button>
                                 </div>
                             </div>
 
                         </div>
                     </form>
-                    <Table striped bordered hover>
+                    <div id="example1_wrapper" className="dataTables_wrapper dt-bootstrap4">
+                    <Table className='table table-bordered table-hover dataTable dtr-inline'>
                         <thead>
                             <tr>
-                                <th>Clock In Date</th>
-                                <th>Clock In Time</th>
-                                <th>Clock Out Date</th>
-                                <th>Clock Out Time</th>
-                                <th>Difference</th>
+                                <th className="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Clock In Date">Clock In Date</th>
+                                <th className="sorting sorting_desc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="descending" aria-label="Clock In Time">Clock In Time</th>
+                                <th className="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Clock Out Date">Clock Out Date</th>
+                                <th className="sorting sorting_desc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="descending" aria-label="Clock Out Time">Clock Out Time</th>
+                                <th className="sorting sorting_desc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="descending" aria-label="Difference">Difference</th>
 
                             </tr>
                         </thead>
@@ -103,6 +113,7 @@ const AttendanceList = props => {
                             ))}
                         </tbody>
                     </Table>
+                    </div>
                 </Card>
             </Container>
         </div>

@@ -134,7 +134,7 @@ const EmployeeForm = props => {
     const renderPersonalInfoForm = () => {
         return (
             <>
-                <p className='company-information-title'>Personal Information</p>
+                <p className='mt-3 company-information-title'>Personal Information</p>
                 <Row>
                     <Col md={3}>
                         <Input name={'employeeId'} id={'employeeId'} label="Employee Id" onChange={onChangeText} />
@@ -169,6 +169,7 @@ const EmployeeForm = props => {
                     <Col md={3}>
                         <Input name={'dateOfJoining'} id={'dateOfJoining'} label="Date Of Joining" onChange={onChangeText} type="date" />
                     </Col>
+                    
                 </Row>
             </>
         )
@@ -176,15 +177,18 @@ const EmployeeForm = props => {
 
     const renderSubmitButton = () => {
         return (
-            <CustomButton title={'Save'} onClick={createPersonalDetail} isLoading={loading} />
+            <CustomButton title={'Save'} onClick={createPersonalDetail} isLoading={loading} size="md"/>
         )
     }
 
     return (
-        <div style={{ minHeight: "100vh", backgroundImage: backgroundColor }}>
-            <ManagerAppBar drawerOption={"open"} location="Home" />
+        <div style={{  height: "100vh", backgroundColor: "#f2f2f2", overflow: "scroll" }}>
+            <ManagerAppBar drawerOption={""} location="Home" />
             <Container className='employee-form-container'>
-                <h4 className='panel-form-title'>Employee Information</h4>
+            <div className='main-dashboard col-sm-12'>
+                    <h3 className="mb-3" style={{ textAlign: "left" }}>Employee Information</h3>
+                </div>
+                {/* <h4 className='panel-form-title'>Employee Information</h4> */}
                 <Card className='employee-form-card-container'>
                     <Form>
                         {renderCompanyInfoForm()}

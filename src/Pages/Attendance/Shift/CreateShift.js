@@ -90,6 +90,7 @@ const CreateShift = props => {
         return (
             <>
                 <p className='company-information-title'>Personal Information</p>
+                
                 <Row>
                     <Col md={3}>
                         <Input name={'cnic'} id={'cnic'} label="CNIC" />
@@ -145,17 +146,20 @@ const CreateShift = props => {
     // }
 
     return (
-        <div style={{ minHeight: "100vh", backgroundImage: backgroundColor }}>
-            <ManagerAppBar drawerOption={"open"} location="Home" />
+        <div style={{  height: "800px", backgroundColor: "#f4f4f4", overflow: "scroll" }}>
+            <ManagerAppBar drawerOption={""} location="Home" />
             <Container className='employee-form-container'>
-                <h4 className='panel-form-title'>Create Shift</h4>
-                <Card className='employee-form-card-container'>
+               
+                <div className='main-dashboard col-sm-12'>
+                    <h3 className="mb-3" style={{ textAlign: "left" }}>Create Shift</h3>
+                </div>
+                <Card className='employee-form-card-container col-sm-4'>
                     <Form>
                         <Row>
-                            <Col md={3}>
+                            <Col md={12}>
                                 <Input name={'name'} id={'name'} label="Shift Name"  onChange={onChangeText} />
                             </Col>
-                            <Col md={3}>
+                            <Col md={12}>
                                 <Select name={'timezoneId'} id={'timezoneId'} label="Timezone" options={lookups?.timezone} onChange={onChangeText} />
                             </Col>
                             {/* <Col md={'3'}>
@@ -166,7 +170,7 @@ const CreateShift = props => {
                                 <MultiSelect name={'department'} id={'department'} label="Department" options={lookups?.department} multiple />
                             </Col> */}
 
-                            <Col md={3}>
+                            <Col md={12}>
                                 <Input name={'description'} id={'description'} label="Shift Details"  onChange={onChangeText} />
                             </Col>
    

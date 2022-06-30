@@ -50,7 +50,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    width:'100%',
+    width: '1264',
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -180,224 +180,224 @@ const ManagerAppBar = (props) => {
         <div
           className={classes.list}
           style={{
-            display: "flex",
+            display: "block",
 
             flex: 1,
             flexDirection: "column",
             justifyContent: "space-between",
-            //alignItems: "space-between",
+            alignItems: "space-between",
           }}
         >
           <List>
             <div className="User-Info">
-       
+
               <ListItemButton style={{ textDecoration: "none", color: "black", borderBottom: "2px solid #ddd", paddingBottom: "20", fontWeight: "700", margin: "0 15px" }}>
-              <img
-            src={profile}
-            style={{
-              width: "40px",
-              height: "40px",
-              objectFit: "contain",
-              borderRadius: "50%",
-              marginRight: 15,
-              marginLeft: -15,
-            }}
-            alt="User Profile"
-          />
+                <img
+                  src={profile}
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    objectFit: "contain",
+                    borderRadius: "50%",
+                    marginRight: 15,
+                    marginLeft: -15,
+                  }}
+                  alt="User Profile"
+                />
                 <ListItemText
                   primary="Zue User"
                   style={{ textDecoration: "none", color: "black", }}
                   classes={{ primary: classes.listItemText }}
                 />
               </ListItemButton>
-          
+
             </div>
 
             <div className="SideMenu">
-           
-            <div>
-            <Link
-              to="/Home"
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              <ListItemButton className="active">
-                <ListItemIcon>
-                  <DashboardOutlinedIcon color="var(--primary-color)" />
-                </ListItemIcon>
-                <ListItemText
-                  primary="Dashboard"
+
+              <div>
+                <Link
+                  to="/Home"
                   style={{ textDecoration: "none", color: "black" }}
-                  classes={{ primary: classes.listItemText }}
-                />
-              </ListItemButton>
-            </Link>
-            <ListItemButton onClick={handleHrmApiClick}>
-                <ListItemIcon>
-                  <AssignmentOutlinedIcon style={{ color: "var(--primary-color)" }} />
-                </ListItemIcon>
-                <ListItemText primary="Daily Tasks" />
-                {hrmapimenuopen ? <ExpandLess /> : <ExpandMore />}
-              </ListItemButton>
-              <Collapse in={hrmapimenuopen} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  {/* {
+                >
+                  <ListItemButton className="active">
+                    <ListItemIcon>
+                      <DashboardOutlinedIcon color="var(--primary-color)" />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary="Dashboard"
+                      style={{ textDecoration: "none", color: "black" }}
+                      classes={{ primary: classes.listItemText }}
+                    />
+                  </ListItemButton>
+                </Link>
+                <ListItemButton onClick={handleHrmApiClick}>
+                  <ListItemIcon>
+                    <AssignmentOutlinedIcon style={{ color: "var(--primary-color)" }} />
+                  </ListItemIcon>
+                  <ListItemText primary="Daily Tasks" />
+                  {hrmapimenuopen ? <ExpandLess /> : <ExpandMore />}
+                </ListItemButton>
+                <Collapse in={hrmapimenuopen} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    {/* {
                     PermissionProvider({ permissionDetails: permissionDetails, moduleName: ModuleName.DMEService, permissionLevel: "Read" }) ? */}
 
-                  <Link
-                    to="#"
-                    style={{ textDecoration: "none", color: "black" }}
-                  >
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemText
-                        primary="Daily Attendance"
-                        classes={{ primary: classes.listItemText }}
-                      />
-                    </ListItemButton>
-                  </Link>
-                  <Link
-                    to="#"
-                    style={{ textDecoration: "none", color: "black" }}
-                  >
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemText
-                        primary="Daily Activity"
-                        classes={{ primary: classes.listItemText }}
-                      />
-                    </ListItemButton>
-                  </Link>
-                </List>
-              </Collapse>
+                    <Link
+                      to="#"
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemText
+                          primary="Daily Attendance"
+                          classes={{ primary: classes.listItemText }}
+                        />
+                      </ListItemButton>
+                    </Link>
+                    <Link
+                      to="#"
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemText
+                          primary="Daily Activity"
+                          classes={{ primary: classes.listItemText }}
+                        />
+                      </ListItemButton>
+                    </Link>
+                  </List>
+                </Collapse>
 
 
-              <ListItemButton onClick={handleHrmApiClick}>
-                <ListItemIcon>
-                  <NaturePeopleOutlinedIcon style={{ color: "var(--primary-color)" }} />
-                </ListItemIcon>
-                <ListItemText primary="Employee Setup" />
-                {hrmapimenuopen ? <ExpandLess /> : <ExpandMore />}
-              </ListItemButton>
-              <Collapse in={hrmapimenuopen} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  {/* {
+                <ListItemButton onClick={handleHrmApiClick}>
+                  <ListItemIcon>
+                    <NaturePeopleOutlinedIcon style={{ color: "var(--primary-color)" }} />
+                  </ListItemIcon>
+                  <ListItemText primary="Employee Setup" />
+                  {hrmapimenuopen ? <ExpandLess /> : <ExpandMore />}
+                </ListItemButton>
+                <Collapse in={hrmapimenuopen} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    {/* {
                     PermissionProvider({ permissionDetails: permissionDetails, moduleName: ModuleName.DMEService, permissionLevel: "Read" }) ? */}
 
-                  <Link
-                    to="/HRM/Employees"
-                    style={{ textDecoration: "none", color: "black" }}
-                  >
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemText
-                        primary="Employees"
-                        classes={{ primary: classes.listItemText }}
-                      />
-                    </ListItemButton>
-                  </Link>
-                  
-                </List>
-              </Collapse>
+                    <Link
+                      to="/HRM/Employees"
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemText
+                          primary="Employees"
+                          classes={{ primary: classes.listItemText }}
+                        />
+                      </ListItemButton>
+                    </Link>
 
-              <ListItemButton onClick={handleAttendanceClick}>
-                <ListItemIcon>
-                  <ContactsOutlinedIcon style={{ color: "var(--primary-color)" }} />
-                </ListItemIcon>
-                <ListItemText primary="Attendance & Leave" />
-                {hrmattendanceopen ? <ExpandLess /> : <ExpandMore />}
-              </ListItemButton>
-              <Collapse in={hrmattendanceopen} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  {/* {
+                  </List>
+                </Collapse>
+
+                <ListItemButton onClick={handleAttendanceClick}>
+                  <ListItemIcon>
+                    <ContactsOutlinedIcon style={{ color: "var(--primary-color)" }} />
+                  </ListItemIcon>
+                  <ListItemText primary="Attendance & Leave" />
+                  {hrmattendanceopen ? <ExpandLess /> : <ExpandMore />}
+                </ListItemButton>
+                <Collapse in={hrmattendanceopen} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    {/* {
                     PermissionProvider({ permissionDetails: permissionDetails, moduleName: ModuleName.DMEService, permissionLevel: "Read" }) ? */}
 
-                  <Link
-                    to="/Attendance/clockIn"
-                    style={{ textDecoration: "none", color: "black" }}
-                  >
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemText
-                        primary="Clock In Clock Out"
-                        classes={{ primary: classes.listItemText }}
-                      />
-                    </ListItemButton>
-                  </Link>
+                    <Link
+                      to="/Attendance/clockIn"
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemText
+                          primary="Clock In Clock Out"
+                          classes={{ primary: classes.listItemText }}
+                        />
+                      </ListItemButton>
+                    </Link>
 
-                  <Link
-                    to="/Attendance/AttendanceList"
-                    style={{ textDecoration: "none", color: "black" }}
-                  >
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemText
-                        primary="Attendance List"
-                        classes={{ primary: classes.listItemText }}
-                      />
-                    </ListItemButton>
-                  </Link>
+                    <Link
+                      to="/Attendance/AttendanceList"
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemText
+                          primary="Attendance List"
+                          classes={{ primary: classes.listItemText }}
+                        />
+                      </ListItemButton>
+                    </Link>
 
-                  <Link
-                    to="/Attendance/CreateShift"
-                    style={{ textDecoration: "none", color: "black" }}
-                  >
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemText
-                        primary="Create shift"
-                        classes={{ primary: classes.listItemText }}
-                      />
-                    </ListItemButton>
-                  </Link>
+                    <Link
+                      to="/Attendance/CreateShift"
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemText
+                          primary="Create shift"
+                          classes={{ primary: classes.listItemText }}
+                        />
+                      </ListItemButton>
+                    </Link>
 
-                  <Link
-                    to="/Attendance/ShiftDetails"
-                    style={{ textDecoration: "none", color: "black" }}
-                  >
-                    <ListItemButton sx={{ pl: 4 }}>
-                      <ListItemText
-                        primary="Create shift's weeks details"
-                        classes={{ primary: classes.listItemText }}
-                      />
-                    </ListItemButton>
-                  </Link>
-                 
-                </List>
-              </Collapse>
+                    <Link
+                      to="/Attendance/ShiftDetails"
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemText
+                          primary="Create shift's weeks details"
+                          classes={{ primary: classes.listItemText }}
+                        />
+                      </ListItemButton>
+                    </Link>
 
-              <ListItemButton>
-                <ListItemIcon>
-                  <AttributionOutlinedIcon style={{ color: "var(--primary-color)" }} />
-                </ListItemIcon>
-                <ListItemText primary="Talent Acquisition" />
-              
-              </ListItemButton>     
-              <ListItemButton>
-                <ListItemIcon>
-                  <AssessmentOutlinedIcon style={{ color: "var(--primary-color)" }} />
-                </ListItemIcon>
-                <ListItemText primary="Performance & Talent" />
-           
-              </ListItemButton>
-              <ListItemButton>
-                <ListItemIcon>
-                  <ListOutlinedIcon style={{ color: "var(--primary-color)" }} />
-                </ListItemIcon>
-                <ListItemText primary="HR & Employee Data" />
-               
-              </ListItemButton> 
-              <ListItemButton>
-                <ListItemIcon>
-                  <AccountBalanceWalletOutlinedIcon style={{ color: "var(--primary-color)" }} />
-                </ListItemIcon>
-                <ListItemText primary="Payroll Compensation"/>
-           
-              </ListItemButton> 
-              <ListItemButton>
-                <ListItemIcon>
-                  <GroupIcon style={{ color: "var(--primary-color)" }} />
-                </ListItemIcon>
-                <ListItemText primary="People Management" />
-             
-              </ListItemButton>   
-            </div>
+                  </List>
+                </Collapse>
+
+                <ListItemButton>
+                  <ListItemIcon>
+                    <AttributionOutlinedIcon style={{ color: "var(--primary-color)" }} />
+                  </ListItemIcon>
+                  <ListItemText primary="Talent Acquisition" />
+
+                </ListItemButton>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <AssessmentOutlinedIcon style={{ color: "var(--primary-color)" }} />
+                  </ListItemIcon>
+                  <ListItemText primary="Performance & Talent" />
+
+                </ListItemButton>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <ListOutlinedIcon style={{ color: "var(--primary-color)" }} />
+                  </ListItemIcon>
+                  <ListItemText primary="HR & Employee Data" />
+
+                </ListItemButton>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <AccountBalanceWalletOutlinedIcon style={{ color: "var(--primary-color)" }} />
+                  </ListItemIcon>
+                  <ListItemText primary="Payroll Compensation" />
+
+                </ListItemButton>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <GroupIcon style={{ color: "var(--primary-color)" }} />
+                  </ListItemIcon>
+                  <ListItemText primary="People Management" />
+
+                </ListItemButton>
+              </div>
             </div>
           </List>
-          
+
           {/* <div onClick={handlePasswordChange}>
             <ListItem button>
               <ListItemIcon>
@@ -423,7 +423,7 @@ const ManagerAppBar = (props) => {
       </Drawer>
       <AppBar position="static" style={{ backgroundImage: mainAppBarColor }}>
         <Toolbar>
-          {/* <IconButton
+          <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
@@ -431,8 +431,7 @@ const ManagerAppBar = (props) => {
             onClick={() => setDrawer(true)}
           >
             <MenuIcon />
-          </IconButton> */}
-         
+          </IconButton>
           <div className="header-bar col-sm-10">
             <h1
               style={{
@@ -451,26 +450,27 @@ const ManagerAppBar = (props) => {
               {/* {location} */}
             </Typography>
           </div>
-         
-     <div className="user-notify col-sm-2 d-flex flex-lg-row-reverse">
-       
-                {/* <ListItemIcon>
+
+          <div className="user-notify col-sm-2 d-flex flex-lg-row-reverse">
+
+            {/* <ListItemIcon>
                   <SearchIcon/>
                 </ListItemIcon> */}
-                <ListItemIcon>
-                  <PersonIcon/>
-                  <DropdownButton id="dropdown-basic-button" title="">  
-  <Dropdown.Item href="#">Edit Profile</Dropdown.Item>
-  <Dropdown.Item href="#">Something else</Dropdown.Item>
-  <Dropdown.Item onClick={handleLogOut}>Logout</Dropdown.Item>
-</DropdownButton>
-                </ListItemIcon>
-                <ListItemIcon>
-                  <NotificationsIcon/>  
-                </ListItemIcon>
-          
-     </div>
-        
+            <ListItemIcon>
+              <PersonIcon />
+              <DropdownButton id="dropdown-basic-button" title="">
+                <Dropdown.Item href="#">Edit Profile</Dropdown.Item>
+                <Dropdown.Item href="#">Something else</Dropdown.Item>
+                <Dropdown.Item onClick={handleLogOut}>Logout</Dropdown.Item>
+              </DropdownButton>
+            </ListItemIcon>
+            <ListItemIcon>
+              <NotificationsIcon />
+            </ListItemIcon>
+
+          </div>
+
+
           <Menu
             id="basic-menu"
             anchorEl={anchorEl}
@@ -496,11 +496,6 @@ const ManagerAppBar = (props) => {
     </div>
   );
 };
-
-
-
-
-
 
 
 export default ManagerAppBar;

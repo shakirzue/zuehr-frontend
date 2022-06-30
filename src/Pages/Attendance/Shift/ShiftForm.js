@@ -67,7 +67,7 @@ const ShiftForm = props => {
 
     return (
         <div style={{ minHeight: "100vh", backgroundImage: backgroundColor }}>
-            <ManagerAppBar drawerOption={"open"} location="Home" />
+            <ManagerAppBar drawerOption={""} location="Home" />
             <Container className='employee-form-container'>
                 <h4 className='panel-form-title'>Shift Scheduler</h4>
                 <Card className='employee-form-card-container'>

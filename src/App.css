@@ -42,7 +42,78 @@ body {
   --primary-color: #ff0000;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color); 
+}
+
+
+.btn-primary {
+  color: #fff;
+  background-color: var(--primary-color) !important;
+  border-radius: 6px !important;
+  border-color: var(--primary-color) !important;
+  text-transform: capitalize;
+}
+
+.btn-primary:hover {
+  background-color: #fff !important;
+  color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+.btn-secondary {
+  color: #fff;
+  background-color: #000 !important;
+  border-color: #000 !important;
+  margin:1px !important;
+  border-radius: 6px !important;
+}
+
+.btn-secondary:hover {
+  background-color: #444 !important;
+  border-color: #444 !important;
+}
+
+.select-component-container.tab-section-card-button.full-btn button {
+  width: 100%;
+}
+
+
+
+button.btn-transparent {
+  background-color: transparent !important;
+  color: var(--primary-color) !important;
+  border: 1px solid var(--primary-color);
+}
+
+button.btn-transparent:hover {
+  background-color: var(--primary-color) !important;
+  color: #fff !important;
+  border: 1px solid var(--primary-color);
+}
+
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
 
 /* custom css */
 .employee-form-container {
@@ -56,11 +127,11 @@ body {
 }
 
 .company-information-title {
-  font-size: 18px;
-  letter-spacing: 1px;
+  font-size: 20px;
   text-align: initial;
   padding-bottom: 5px;
-  border-bottom: 1px solid #ececec;
+  border-bottom: 2px solid #000;
+  font-weight: 100;
 }
 
 .employee-form-card-container {
@@ -100,20 +171,8 @@ body {
   text-align: justify;
 }
 
-.employee-detail-box-info-btn-active {
-  background-color: #28a745 !important;
-  border-color: #28a745 !important;
-}
-
-.employee-detail-info-pic-container {}
-
 .employee-detail-info-pic-container img {
   width: 100%;
-}
-
-.employee-detail-info-pic-container button {
-  background-color: #e0a800 !important;
-  border-color: #e0a800 !important;
 }
 
 .employee-profiling-detail-tabs-container {
@@ -126,8 +185,16 @@ body {
 }
 
 .employee-profiling-detail-tab-item-container .nav-link.active {
-  background: #0075C9 !important;
+  background: #000 !important;
   color: #fff !important;
+}
+
+.nav-link:focus, .nav-link:hover {
+  color: var(--primary-color);
+}
+
+.nav-tabs .nav-link {
+  color: #000 !important;
 }
 
 .employee-profiling-detail-tab-item-container .nav-link {
@@ -233,12 +300,34 @@ header.MuiPaper-root {
   background-color: var(--primary-color) !important;
   border-radius: 4px !important;
 }
-.MuiDrawer-root.MuiDrawer-modal{
-  position:static !important;
+div#example1_filter {
+  margin-top: -30px;
 }
-.App > div {
-  width: 85%;
+/* .MuiDrawer-root.MuiDrawer-modal{
+  position:fixed!important;
   margin-left: 256px;
+} */
+
+@media (min-width: 768px){
+  .App > div {
+    width: 100%;
+    /* margin-right:20px; */
+    /* margin-left: 256px; */
+  }
+  }
+
+/* @media (min-width: 768px){
+  .MuiBackdrop-root{
+  width: 10%;
+  margin-left: 0px;
+}
+}  */
+.MuiToolbar-root.MuiToolbar-regular.MuiToolbar-gutters {
+  /* width: 100% !important; */
+  padding-right: 60px !important;
+}
+button#dropdown-basic-button:hover {
+  box-shadow: none !important;
 }
 .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
   padding: 0 50px !important;
@@ -273,7 +362,7 @@ header.MuiPaper-root {
   color: #444 !important;
 }
 .SideMenu svg.MuiSvgIcon-root {
-  color: #ff0000;
+  color: var(--primary-color);
 }
 .MuiCollapse-wrapperInner.MuiCollapse-vertical.css-9l5vo-MuiCollapse-wrapperInner .MuiList-root {
   padding-left: 40px;
@@ -320,4 +409,25 @@ button#dropdown-basic-button {
   background-color: transparent;
   border: none;
   padding: 0;
+}
+.card.dashboard {
+  box-shadow: none;
+  margin-bottom: 0rem;
+}
+table tr td {
+  text-align: left !important;
+}
+.dataTables_info{
+  display: flex;
+}
+.container.alert-container {
+  display: none;
+}
+.select-component-label {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+.form-select {
+  font-size: smaller !important;
+  border-radius: 6px !important;
 }

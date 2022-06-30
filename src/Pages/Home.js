@@ -127,9 +127,9 @@ const HomePage = (props) => {
 
 
     return (
-        <div className="width-set-cont" style={{ height: "100vh", overflow: "scroll", backgroundColor: "#fff" }}>
+        <div className="width-set-cont" style={{ height: "100vh", overflow: "scroll", backgroundColor: "#fff" }}> 
             {isAuthenticated ? <>
-                <ManagerAppbar drawerOption="open" location="Home" />
+                <ManagerAppbar drawerOption="" location="Home" />
                 <div className='container'>
                     <div className='main-dashboard col-sm-12 pt-3'>
                         <h3 className="mb-0" style={{ textAlign: "left" }}>Dashboard</h3>
@@ -212,7 +212,7 @@ const HomePage = (props) => {
 
                         </div>
                         
-                        <div className='row mt-2'>
+                        <div className='row'>
                         <div class="table-dashboard card-header bg-transparent border-0 d-flex">
                                         <h3 class="card-title">Pending Tasks</h3>
                                     </div>

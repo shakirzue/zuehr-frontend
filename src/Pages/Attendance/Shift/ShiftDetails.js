@@ -152,8 +152,8 @@ const ShiftDetails = props => {
     }
 
     return (
-        <div style={{ minHeight: "100vh", backgroundImage: backgroundColor }}>
-            <ManagerAppBar drawerOption={"open"} location="Home" />
+        <div style={{ height: "800px", backgroundColor: "#f4f4f4", overflow: "scroll" }}>
+            <ManagerAppBar drawerOption={""} location="Home" />
             <Container className='employee-form-container'>
                 {renderShifts()}
                 {renderMainTabs()}

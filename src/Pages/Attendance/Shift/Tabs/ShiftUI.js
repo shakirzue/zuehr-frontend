@@ -259,8 +259,8 @@ const ShiftForm = ({ dayName, onChange = () => { }, onSubmit=()=>{}, item }) => 
         </Row>
 
        <Row>
-       <Col md={4}>
-            <CustomButton title={'Save '+dayName} customContainerClass={'tab-section-card-button'} dayName={dayName} id={item.length > 0 ? (item[0].id) : 0} onClick={onSubmit} />
+       <Col md={12}>
+            <CustomButton title={'Save '+dayName} customContainerClass={'tab-section-card-button full-btn'} dayName={dayName} id={item.length > 0 ? (item[0].id) : 0} onClick={onSubmit} />
        </Col>
        </Row>
 

@@ -172,7 +172,7 @@ function ClockIn() {
 
     return (
         <div>
-            <ManagerAppBar drawerOption={"open"} location="Home" />
+            <ManagerAppBar drawerOption={""} location="Home" />
             <ToastContainer
                 position="top-right"
                 autoClose={5000}
@@ -186,20 +186,20 @@ function ClockIn() {
             />
             {/* Same as */}
             <ToastContainer />
-            <div className="container" style={{ marginTop: 20 }}>
-                <div className="row"><h1>ZUE NHMS PORTAL ATTENDANCE MODULE</h1></div>
+            <div className="container" style={{  height: "90vh", backgroundColor: "#fff", overflow: "scroll" }}>
+                <div className="row mt-5"><h1>Attendance Portal</h1></div>
                 <div className="row text-center">
-                    <div className="col-md-6 mt-5">
+                    <div className="col-md-6 mt-5 d-flex align-items-center justify-content-center">
                         <Clock value={value} size="400" />
                     </div>
                     <div className="col-md-6 mt-5 d-flex align-items-center justify-content-center">
-                        <button className="btn btn-primary btn-lg" onClick={clockInHandler} style={{ marginRight: 20, padding: 12, fontSize: 35 }}
+                        <button className="btn btn-primary btn-lg" onClick={clockInHandler} style={{ marginRight: 20, padding: 12 }}
                         disabled = {checkAlready?.status == 1 ? 'disabled' : ''}
-                        >CLOCK IN</button>
+                        >Clock In</button>
 
                         {/* <button className="btn btn-primary btn-lg" onClick={clockInHandler} style={{ marginRight: 20, padding: 12, fontSize: 35 }}>CLOCK IN</button> */}
 
-                        <button className="btn btn-success btn-lg" onClick={clockOutHandler} style={{ marginRight: 20, padding: 12, fontSize: 35 }}>CLOCK OUT</button>
+                        <button className="btn btn-secondary btn-lg" onClick={clockOutHandler} style={{ marginRight: 20, padding: 12 }}>Clock Out</button>
 
                     </div>
                 </div>

@@ -6,8 +6,8 @@ import HomePage from "./Pages/Home";
 import LoginPage from "./Pages/Auth/Login";
 import SignUpPage from "./Pages/Auth/SignUp";
 import ForgetPage from "./Pages/Auth/Forget";
-//import PrivateRoute from './components/PrivateRoute';
-//import PrivateRouteQueryString from './components/PrivateRouteQueryString';
+// import PrivateRoute from './components/PrivateRoute';
+// import PrivateRouteQueryString from './components/PrivateRouteQueryString';
 import {
   BrowserRouter as Router,
   Routes,
