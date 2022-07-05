@@ -49,7 +49,7 @@ const AttendanceList = props => {
 
     return (
         <div style={{ height: "100vh", backgroundColor: "#f4f4f4", overflow: "scroll" }}>
-            <ManagerAppBar drawerOption={""} location="Home" />
+            <ManagerAppBar drawerOption={"open"} location="Home" />
             <Container className='employee-form-container'>
             <div className='main-dashboard col-sm-12'>
                     <h3 className="mb-3" style={{ textAlign: "left" }}>Attendance History</h3>
@@ -90,7 +90,7 @@ const AttendanceList = props => {
                         </div>
                     </form>
                     <div id="example1_wrapper" className="dataTables_wrapper dt-bootstrap4">
-                    <Table className='table table-bordered table-hover dataTable dtr-inline'>
+                    <Table className='table table-bordered table-striped table-hover dataTable dtr-inline'>
                         <thead>
                             <tr>
                                 <th className="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Clock In Date">Clock In Date</th>

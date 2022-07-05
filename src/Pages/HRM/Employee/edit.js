@@ -111,7 +111,7 @@ const EmployeeEdit = props => {
                 <h4 className='employee-detail-box-title'>{title}</h4>
                 {
                     isButton ?
-                        <CustomButton buttonClass={'employee-detail-box-info-btn-active'} customContainerClass={`employee-detail-box-info-btn`} className={buttonClass} title={val} size="sm" />
+                        <CustomButton disabled buttonClass={'employee-detail-box-info-btn-active'} customContainerClass={`employee-detail-box-info-btn`} className={buttonClass} title={val} size="sm" />
                         :
                         <p className='employee-detail-box-title employee-detail-box-value'>{val}</p>
                 }
@@ -157,19 +157,18 @@ const EmployeeEdit = props => {
         return <ProfessionalReference />
     }
 
-
     return (
-        <div style={{ minHeight: "100vh", backgroundImage: backgroundColor }}>
-            <ManagerAppBar drawerOption={""} location="Home" />
+        <div style={{ height: "800px", backgroundColor: "#f4f4f4", overflow: "scroll" }}>
+            <ManagerAppBar drawerOption={"open"} location="Home" />
             <Container className='employee-form-container'>
                 <Card className='employee-form-card-container'>
                     <Row>
                         <Col md={3}>
-                            {renderInfoDetail('Employee Code', details?.EmployeeId, true)}
+                            {renderInfoDetail('Employee ID', details?.EmployeeId, true)}
                             {renderInfoDetail('Gender', getGenderName())}
                             {renderInfoDetail('Date Of Joining', details?.DateOfJoining)}
                             {renderInfoDetail('Designation', getCompanyObject(details?.Company_Details), true)}
-                            {renderInfoDetail('Application Login', details?.Email)}
+                            {renderInfoDetail('Email Address', details?.Email)}
                         </Col>
                         <Col md={3}>
                             {renderInfoDetail('Employee Name', getFullEmployeeName(details))}
@@ -185,7 +184,7 @@ const EmployeeEdit = props => {
                             {renderInfoDetail('Status', getProfileStatus(), true, 'employee-detail-box-info-btn-active')}
                         </Col>
                         <Col md={3}>
-                            <div className='employee-detail-info-pic-container'>
+                            <div className='employee-detail-info-pic-container text-center'>
                                 <img src={userAvatar} />
                                 <CustomButton title="Upload New" onClick={onPressUploadNew} />
                                 <input type='file' id='file' ref={inputFile} style={{ display: 'none' }} onChange={onFileSelect} />

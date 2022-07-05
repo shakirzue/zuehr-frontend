@@ -41,7 +41,7 @@ const EmployeeList = props => {
 
     return (
         <div style={{ height: "800px", backgroundColor: "#f4f4f4", overflow: "scroll" }}>
-            <ManagerAppBar drawerOption={""} location="/HRM/Employee" />
+            <ManagerAppBar drawerOption={"open"} location="/HRM/Employee" />
 
             <Container className='employee-form-container'>
                 <div className='main-dashboard col-sm-12'>
@@ -130,84 +130,42 @@ const EmployeeList = props => {
                         </div>
                         <div className="row">
                             <div className="col-sm-12">
-                                <table id="example1" className="table table-bordered table-hover dataTable dtr-inline" aria-describedby="example1_info">
+                                <table id="example1" className="table table-bordered table-striped table-hover dataTable dtr-inline" aria-describedby="example1_info">
                                     <thead>
 
                                         <tr>
-                                            <th className="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">#</th>
-                                            <th className="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">First Name</th>
-                                            <th className="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Middle Name</th>
-                                            <th className="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Last Name</th>
-                                            <th className="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Gender</th>
-                                            <th className="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Company</th>
+                                            <th className="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Employee Id</th>
+                                            <th className="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Name</th>
+                                            <th className="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Company</th>
+                                            <th className="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Department</th>
+                                            <th className="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Date of Joining</th>
+                                            <th className="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Status</th>
                                             <th className="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-
-
-                                        <tr class="odd">
-                                            <td class="sorting_1 dtr-control">1</td>
-                                            <td>Netscape 7.2</td>
-                                            <td>Win 95+ / Mac OS 8.6-9.2</td>
-                                            <td>1.7</td>
-                                            <td>A</td>
-                                            <td>A</td>
-                                            <td class="sorting_1 dtr-control">
-                                                <Link to={'#'}>
-                                                    <Edit />
-                                                </Link>
-                                                <Link to={'#'}>
-                                                    <Delete />
-                                                </Link>
-                                            </td>
-                                        </tr><tr class="even">
-                                            <td class="sorting_1 dtr-control">2</td>
-                                            <td>Netscape Browser 8</td>
-                                            <td>Win 98SE+</td>
-                                            <td>1.7</td>
-                                            <td>A</td>
-                                            <td>A</td>
-                                            <td class="sorting_1 dtr-control">
-                                                <Link to={'#'}>
-                                                    <Edit />
-                                                </Link>
-                                                <Link to={'#'}>
-                                                    <Delete />
-                                                </Link>
-                                            </td>
-                                        </tr><tr class="odd">
-                                            <td class="sorting_1 dtr-control">3</td>
-                                            <td>Netscape Navigator 9</td>
-                                            <td>Win 98+ / OSX.2+</td>
-                                            <td>1.8</td>
-                                            <td>A</td>
-                                            <td>A</td>
-                                            <td class="sorting_1 dtr-control">
-                                                <Link to={'#'}>
-                                                    <Edit />
-                                                </Link>
-                                                <Link to={'#'}>
-                                                    <Delete />
-                                                </Link>
-                                            </td>
-                                        </tr><tr class="even">
-                                            <td class="sorting_1 dtr-control">4</td>
-                                            <td>Mozilla 1.0</td>
-                                            <td>Win 95+ / OSX.1+</td>
-                                            <td>1</td>
-                                            <td>A</td>
-                                            <td>A</td>
-                                            <td class="sorting_1 dtr-control">
-                                                <Link to={'#'}>
-                                                    <Edit />
-                                                </Link>
-                                                <Link to={'#'}>
-                                                    <Delete />
-                                                </Link>
-                                            </td>
-                                        </tr>
-
+                                        {
+                                            profiles.map((item, index) => {
+                                                const { FirstName, MiddleName, Department,DateOfBirth,LastName, Gender, Phone, EmployeeId, id, Company_Details } = item;
+                                                return (
+                                                    
+                                                    <tr key={index}>
+                                                        <td class="sorting_1 dtr-control">{EmployeeId}</td>
+                                                        <td class="sorting_1 dtr-control">{FirstName}</td>
+                                                        <td class="sorting_1 dtr-control">{getCompanyObject(Company_Details)}</td>
+                                                        <td class="sorting_1 dtr-control">{Department}</td>
+                                                        <td class="sorting_1 dtr-control">{DateOfBirth}</td>
+                                                        <td class="sorting_1 dtr-control" style={{ color: "#28cc28" }}>Active </td>
+                                                        <td class="sorting_1 dtr-control">
+                                                            <Link to={`/HRM/Edit/Employee/${EmployeeId}`}>
+                                                                <Edit />
+                                                            </Link>
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                )
+                                            })
+                                        }
                                     </tbody>
 
                                 </table>

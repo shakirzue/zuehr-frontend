@@ -173,14 +173,15 @@ const ManagerAppBar = (props) => {
     });
   }, []);
 
+
   return (
 
     <div className={classes.root}>
-      <Drawer open={drawer} onClose={toggleDrawer(false)} >
+      <Drawer open={drawer} disableEnforceFocus onClose={toggleDrawer(false)} >
         <div
           className={classes.list}
           style={{
-            display: "block",
+            display: "flex",
 
             flex: 1,
             flexDirection: "column",
@@ -195,8 +196,8 @@ const ManagerAppBar = (props) => {
                 <img
                   src={profile}
                   style={{
-                    width: "40px",
-                    height: "40px",
+                    width: "50px",
+                    height: "50px",
                     objectFit: "contain",
                     borderRadius: "50%",
                     marginRight: 15,
@@ -408,17 +409,16 @@ const ManagerAppBar = (props) => {
               />
             </ListItem>
           </div> */}
-          <div onClick={handleLogOut}>
+          {/* <div onClick={handleLogOut}>
             <ListItem button>
               <ListItemIcon>
                 <LogoutIcon color="primary" style={{ color: "var(--primary-color)" }} />
               </ListItemIcon>
               <ListItemText
                 primary="Sign Out"
-              //classes={{ primary: classes.listItemText }}
               />
             </ListItem>
-          </div>
+          </div> */}
         </div>
       </Drawer>
       <AppBar position="static" style={{ backgroundImage: mainAppBarColor }}>
@@ -440,7 +440,7 @@ const ManagerAppBar = (props) => {
                 textAlign: "left",
                 color: mainAppBarTextColor,
                 marginBottom: "0",
-                paddingLeft: "25px",
+                marginLeft: "-5px",
               }}
             >
               HRMS PORTAL

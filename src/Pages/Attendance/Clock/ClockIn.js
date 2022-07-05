@@ -172,7 +172,7 @@ function ClockIn() {
 
     return (
         <div>
-            <ManagerAppBar drawerOption={""} location="Home" />
+            <ManagerAppBar drawerOption={"open"} location="Home" />
             <ToastContainer
                 position="top-right"
                 autoClose={5000}
@@ -187,7 +187,7 @@ function ClockIn() {
             {/* Same as */}
             <ToastContainer />
             <div className="container" style={{  height: "90vh", backgroundColor: "#fff", overflow: "scroll" }}>
-                <div className="row mt-5"><h1>Attendance Portal</h1></div>
+                <div className="row mt-5"><h1>Clock In / Out</h1></div>
                 <div className="row text-center">
                     <div className="col-md-6 mt-5 d-flex align-items-center justify-content-center">
                         <Clock value={value} size="400" />

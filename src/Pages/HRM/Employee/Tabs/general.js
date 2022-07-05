@@ -133,7 +133,7 @@ const General = ({
                         {renderPersonalInfoMainContainer()}
                     </Tab>
                     <Tab eventKey={'company_detail'} title={'Company Detail'}>
-                        {'Compant Detail'}
+                        {'Company Detail'}
                     </Tab>
                     <Tab eventKey={'contact_detail'} title={'Contact Detail'}>
                         {renderContactInfoMainContainer()}

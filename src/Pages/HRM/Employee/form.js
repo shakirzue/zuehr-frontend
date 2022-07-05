@@ -67,6 +67,7 @@ const EmployeeForm = props => {
     // }
 
     const createPersonalDetail = () => {
+
         dispatch(hrModuleActions.createPersonalDetailAction(
             personalDetails,
             createCompanyDetail
@@ -99,33 +100,38 @@ const EmployeeForm = props => {
             <>
                 <p className='company-information-title'>Company Information</p>
                 <Row>
-                    <Col md={'3'}>
-                        <Select name={'groupId'} id={'groupId'} label="Group" options={lookups?.group} onChange={onChangeCompaniesText} />
+                <Col md={'6'}>
+                        <Select name={'companyDomainId'} id={'companyDomainId'} label="Company" options={lookups?.companydomain} onChange={onChangeCompaniesText} />
                     </Col>
-                    <Col md={'3'}>
+                    <Col md={'6'}>
                         <Select name={'locationId'} id={'locationId'} label="Location" options={lookups?.location} onChange={onChangeCompaniesText} />
                     </Col>
-                    <Col md={'3'}>
-                        <Select name={'companyDomainId'} id={'companyDomainId'} label="Company Domain" options={lookups?.companydomain} onChange={onChangeCompaniesText} />
-                    </Col>
-                    <Col md={'3'}>
-                        <Select name={'businessUnitId'} id={'businessUnitId'} label="Business Unit" options={lookups?.businessUnit} onChange={onChangeCompaniesText} />
-                    </Col>
-                    <Col md={'3'}>
+                    <Col md={'6'}>
                         <Select name={'departmentId'} id={'departmentId'} label="Department" options={lookups?.department} onChange={onChangeCompaniesText} />
                     </Col>
-                    <Col md={'3'}>
-                        <Select name={'campaignId'} id={'campaignId'} label="Campaign" options={lookups?.campaign} onChange={onChangeCompaniesText} />
-                    </Col>
-                    <Col md={'3'}>
-                        <Select name={'jobCategoryId'} id={'jobCategoryId'} label="Job Category" options={lookups?.jobcategory} onChange={onChangeCompaniesText} />
-                    </Col>
-                    <Col md={'3'}>
+
+                    <Col md={'6'}>
                         <Select name={'designationId'} id={'designationId'} label="Designation" options={lookups?.designation} onChange={onChangeCompaniesText} />
                     </Col>
-                    <Col md={'3'}>
+                    {/* <Col md={'3'}>
+                        <Select name={'groupId'} id={'groupId'} label="Group" options={lookups?.group} onChange={onChangeCompaniesText} />
+                    </Col> */}
+                    
+                    
+                    {/* <Col md={'3'}>
+                        <Select name={'businessUnitId'} id={'businessUnitId'} label="Business Unit" options={lookups?.businessUnit} onChange={onChangeCompaniesText} />
+                    </Col> */}
+                   
+                    {/* <Col md={'3'}>
+                        <Select name={'campaignId'} id={'campaignId'} label="Campaign" options={lookups?.campaign} onChange={onChangeCompaniesText} />
+                    </Col> */}
+                    {/* <Col md={'3'}>
+                        <Select name={'jobCategoryId'} id={'jobCategoryId'} label="Job Category" options={lookups?.jobcategory} onChange={onChangeCompaniesText} />
+                    </Col> */}
+                    
+                    {/* <Col md={'3'}>
                         <Select name={'costCenterId'} id={'costCenterId'} label="Cost Center" options={lookups?.costcenter} onChange={onChangeCompaniesText} />
-                    </Col>
+                    </Col> */}
                 </Row>
             </>
         )
@@ -137,13 +143,10 @@ const EmployeeForm = props => {
                 <p className='mt-3 company-information-title'>Personal Information</p>
                 <Row>
                     <Col md={3}>
-                        <Input name={'employeeId'} id={'employeeId'} label="Employee Id" onChange={onChangeText} />
+                        <Input name={'employeeId'} id={'employeeId'} label="Employee Id" onChange={onChangeText} disabled/>
                     </Col>
                     <Col md={3}>
-                        <Input name={'identityNumber'} id={'identityNumber'} label="CNIC" onChange={onChangeText} />
-                    </Col>
-                    <Col md={3}>
-                        <Input name={'firstName'} id={'firstName'} label="First Name" onChange={onChangeText} />
+                        <Input name={'firstName'} id={'firstName'} label="First Name*" onChange={onChangeText} required/>
                     </Col>
                     <Col md={3}>
                         <Input name={'middleName'} id={'middleName'} label="Middle Name" onChange={onChangeText} />
@@ -152,7 +155,10 @@ const EmployeeForm = props => {
                         <Input name={'lastName'} id={'lastName'} label="Last Name" onChange={onChangeText} />
                     </Col>
                     <Col md={3}>
-                        <Input name={'phone'} id={'phone'} label="Phone" onChange={onChangeText} type="number" />
+                        <Input name={'identityNumber'} id={'identityNumber'} label="CNIC*" onChange={onChangeText} />
+                    </Col>
+                    <Col md={3}>
+                        <Input name={'phone'} id={'phone'} label="Phone*" onChange={onChangeText} type="number" />
                     </Col>
                     <Col md={3}>
                         <Input name={'dateOfBirth'} id={'dateOfBirth'} label="Date Of Birth" onChange={onChangeText} type="date" />
@@ -183,7 +189,7 @@ const EmployeeForm = props => {
 
     return (
         <div style={{  height: "100vh", backgroundColor: "#f2f2f2", overflow: "scroll" }}>
-            <ManagerAppBar drawerOption={""} location="Home" />
+            <ManagerAppBar drawerOption={"open"} location="Home" />
             <Container className='employee-form-container'>
             <div className='main-dashboard col-sm-12'>
                     <h3 className="mb-3" style={{ textAlign: "left" }}>Employee Information</h3>
