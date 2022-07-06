@@ -111,7 +111,7 @@ const EmployeeEdit = props => {
                 <h4 className='employee-detail-box-title'>{title}</h4>
                 {
                     isButton ?
-                        <CustomButton disabled buttonClass={'employee-detail-box-info-btn-active'} customContainerClass={`employee-detail-box-info-btn`} className={buttonClass} title={val} size="sm" />
+                        <CustomButton disabled buttonClass={'employee-detail-box-info-btn-active'} customContainerClass={`employee-detail-box-info-btn`} className={buttonClass} title={val} size="md" />
                         :
                         <p className='employee-detail-box-title employee-detail-box-value'>{val}</p>
                 }
@@ -123,7 +123,7 @@ const EmployeeEdit = props => {
     const renderMainTabs = () => {
         return (
             <div className='employee-profiling-detail-tabs-container'>
-                <Tabs defaultActiveKey={'general'} className="mb-3 employee-profiling-detail-tab-item-container">
+                <Tabs defaultActiveKey={'general'} className="mb-3 employee-profiling-detail-tab-item-container d-none">
                     <Tab eventKey={'general'} title={'General'}>
                         {renderGeneralTab()}
                     </Tab>
@@ -161,9 +161,9 @@ const EmployeeEdit = props => {
         <div style={{ height: "800px", backgroundColor: "#f4f4f4", overflow: "scroll" }}>
             <ManagerAppBar drawerOption={"open"} location="Home" />
             <Container className='employee-form-container'>
-                <Card className='employee-form-card-container'>
+                {/*<Card className='employee-form-card-container'>
                     <Row>
-                        <Col md={3}>
+                         <Col md={3}>
                             {renderInfoDetail('Employee ID', details?.EmployeeId, true)}
                             {renderInfoDetail('Gender', getGenderName())}
                             {renderInfoDetail('Date Of Joining', details?.DateOfJoining)}
@@ -182,16 +182,16 @@ const EmployeeEdit = props => {
                             {renderInfoDetail('Department', 'IT Field', true)}
                             {renderInfoDetail('Portal Login', 'muhammad.huzaifa')}
                             {renderInfoDetail('Status', getProfileStatus(), true, 'employee-detail-box-info-btn-active')}
-                        </Col>
+                        </Col> 
                         <Col md={3}>
-                            <div className='employee-detail-info-pic-container text-center'>
+                            <div className='employee-detail-info-pic-container  '>
                                 <img src={userAvatar} />
-                                <CustomButton title="Upload New" onClick={onPressUploadNew} />
+                                <CustomButton className='text-center mx-auto d-flex justify-content-center align-items-center' title="Upload" onClick={onPressUploadNew} />
                                 <input type='file' id='file' ref={inputFile} style={{ display: 'none' }} onChange={onFileSelect} />
                             </div>
                         </Col>
                     </Row>
-                </Card>
+                </Card>*/}
                 {renderMainTabs()}
             </Container>
         </div>

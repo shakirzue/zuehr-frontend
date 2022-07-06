@@ -44,6 +44,7 @@ import AccountBalanceWalletOutlinedIcon from '@material-ui/icons/AccountBalanceW
 import AttributionOutlinedIcon from '@mui/icons-material/AttributionOutlined';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
+import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 
 // import SearchIcon from '@material-ui/icons/Search';
 
@@ -198,13 +199,13 @@ const ManagerAppBar = (props) => {
                   style={{
                     width: "50px",
                     height: "50px",
-                    objectFit: "contain",
+                    objectFit: "cover",
                     borderRadius: "50%",
                     marginRight: 15,
                     marginLeft: -15,
                   }}
                   alt="User Profile"
-                />
+                /><AddAPhotoIcon className="add-image"/>
                 <ListItemText
                   primary="Zue User"
                   style={{ textDecoration: "none", color: "black", }}
@@ -423,7 +424,7 @@ const ManagerAppBar = (props) => {
       </Drawer>
       <AppBar position="static" style={{ backgroundImage: mainAppBarColor }}>
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
@@ -431,8 +432,8 @@ const ManagerAppBar = (props) => {
             onClick={() => setDrawer(true)}
           >
             <MenuIcon />
-          </IconButton>
-          <div className="header-bar col-sm-10">
+          </IconButton> */}
+          <div className="header-bar col-sm-10 pl-5">
             <h1
               style={{
                 fontSize: 20,
@@ -440,7 +441,7 @@ const ManagerAppBar = (props) => {
                 textAlign: "left",
                 color: mainAppBarTextColor,
                 marginBottom: "0",
-                marginLeft: "-5px",
+                marginLeft: "-15px",
               }}
             >
               HRMS PORTAL

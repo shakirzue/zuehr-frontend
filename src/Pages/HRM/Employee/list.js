@@ -9,8 +9,9 @@ import Pagination from '../../../components/Pagination';
 import { useDispatch, useSelector } from 'react-redux';
 import { hrModuleActions } from '../../../redux/actions';
 import _ from 'lodash';
-
-
+import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
+import PrintIcon from '@material-ui/icons/Print';
+import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 const EmployeeList = props => {
 
     const [profiles, setProfiles] = useState([]);
@@ -117,8 +118,12 @@ const EmployeeList = props => {
 
                     <div id="example1_wrapper" className="dataTables_wrapper dt-bootstrap4">
                         <div className="row">
-                            <div className="col-sm-12 col-md-6 d-flex">
-                                
+                             <div className="col-sm-12 col-md-6 d-flex">
+                            {/*<div class="dt-buttons btn-group d-flex">   
+                                <button class="btn btn-print buttons-excel buttons-html5 bg-transparent" tabindex="0" aria-controls="example1" type="button"><span><LibraryBooksIcon className='print-btn'/></span></button> 
+                                <button class="btn btn-print buttons-pdf buttons-html5 bg-transparent" tabindex="0" aria-controls="example1" type="button"><span><PictureAsPdfIcon className='print-btn'/></span></button> 
+                                <button class="btn btn-print buttons-print bg-transparent" tabindex="0" aria-controls="example1" type="button"><span><PrintIcon className='print-btn'/></span></button> 
+                            </div> */}
                             </div>
                             <div className="col-sm-12 col-md-6">
                          
@@ -134,7 +139,7 @@ const EmployeeList = props => {
                                     <thead>
 
                                         <tr>
-                                            <th className="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Employee Id</th>
+                                            <th className="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Employee Code</th>
                                             <th className="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Name</th>
                                             <th className="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Company</th>
                                             <th className="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Department</th>
@@ -186,3 +191,4 @@ EmployeeList.propTypes = {
 };
 
 export default EmployeeList;
+

@@ -9,6 +9,10 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { attendanceActions } from "../../../redux/actions";
 import _ from 'lodash';
+import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
+import PrintIcon from '@material-ui/icons/Print';
+import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
+
 
 const AttendanceList = props => {
 
@@ -60,10 +64,10 @@ const AttendanceList = props => {
                         <div className='row'>
 
                         <div className="col-sm-12 col-md-3" style={{ paddingTop: 36 }}>
-                                <div class="dt-buttons btn-group d-flex">   
-                                <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Excel</span></button> 
-                                <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>PDF</span></button> 
-                                <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1" type="button"><span>Print</span></button> 
+                                <div class="dt-buttons btn-group">   
+                                <button class="btn btn-print buttons-excel buttons-html5 bg-transparent" tabindex="0" aria-controls="example1" type="button"><span><LibraryBooksIcon className='print-btn'/></span></button> 
+                                <button class="btn btn-print buttons-pdf buttons-html5 bg-transparent" tabindex="0" aria-controls="example1" type="button"><span><PictureAsPdfIcon className='print-btn'/></span></button> 
+                                <button class="btn btn-print buttons-print bg-transparent" tabindex="0" aria-controls="example1" type="button"><span><PrintIcon className='print-btn'/></span></button> 
                                 </div>
                             </div>
 

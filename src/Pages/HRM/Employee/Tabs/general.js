@@ -53,6 +53,9 @@ const General = ({
             email: data.Email,
             identityNumber: data.IdentityNumber,
             dateOfJoining: data.DateOfJoining,
+            officialEmail: data.officialEmail,
+            reportToId: data.reportToId,
+            executive: data.executive,
             middleName: data.MiddleName,
             guardianName: data.Guardian_Name,
             personalDetailId: data.id,
@@ -132,21 +135,22 @@ const General = ({
                     <Tab eventKey={'personal_info'} title={'Personal Info'}>
                         {renderPersonalInfoMainContainer()}
                     </Tab>
-                    <Tab eventKey={'company_detail'} title={'Company Detail'}>
-                        {'Company Detail'}
-                    </Tab>
-                    <Tab eventKey={'contact_detail'} title={'Contact Detail'}>
-                        {renderContactInfoMainContainer()}
-                    </Tab>
                     <Tab eventKey={'bank_detail'} title={'Bank Detail'}>
                         {renderBankInfoMainContainer()}
                     </Tab>
-                    <Tab eventKey={'life_insurance'} title={'Life Insurance/PF Detail'}>
+                    {/* <Tab eventKey={'company_detail'} title={'Company Detail'}>
+                        {'Company Detail'}
+                    </Tab> */}
+                    <Tab eventKey={'contact_detail'} title={'Next of Kin'}>
+                        {renderContactInfoMainContainer()}
+                    </Tab>
+                    
+                    <Tab eventKey={'life_insurance'} title={'Insurance Details'}>
                         {renderInsuranceInfoMainContainer()}
                     </Tab>
-                    <Tab eventKey={'personality_detail'} title={'Personality Detail'}>
+                    {/* <Tab eventKey={'personality_detail'} title={'Personality Detail'}>
                         {renderPersonalityInfoMainContainer()}
-                    </Tab>
+                    </Tab> */}
                 </Tabs>
             </div>
         )
@@ -169,7 +173,7 @@ const General = ({
             <>
                 <Row>
                     <Col md={3}>
-                        <Input name={'employeeId'} id={'employeeId'} label="Employee Id" onChange={onChangeText} defaultValue={personalDetails.employeeId} />
+                        <Input name={'employeeId'} id={'employeeId'} label="Employee Code" onChange={onChangeText} defaultValue={personalDetails.employeeId} disabled/>
                     </Col>
                     <Col md={3}>
                         <Input name={'identityNumber'} id={'identityNumber'} label="CNIC" onChange={onChangeText} defaultValue={personalDetails.identityNumber} />
@@ -201,8 +205,25 @@ const General = ({
                     <Col md={3}>
                         <Input name={'dateOfJoining'} id={'dateOfJoining'} label="Date Of Joining" onChange={onChangeText} type="date" defaultValue={personalDetails.dateOfJoining} />
                     </Col>
+                    <Col md={3}>
+                        <Input name={'officialEmail'} id={'officialEmail'} label="Official Email" onChange={onChangeText} type="email" />
+                    </Col>
+                    <Col md={3}>
+                        <Select name={'reportToId'} id={'reportToId'} label="Report To">
+                        <option value="0">Report To</option>
+                        <option value="1">Supervisor</option>
+                        <option value="2">Team Lead</option>
+                        </Select>
+                    </Col>
+                    <Col md={2}>
+                        <div className='executive-checkbox mt-5'>
+                            <input type="checkbox" id="executive" name="executive" value="executive"/>
+                            <label for="executive">   Is Executive</label>
+                        </div>
+                        
+                    </Col>
                 </Row>
-                <CustomButton title={'Update'} customContainerClass={'tab-section-card-button'} onClick={onClickUpdateDetail} />
+                <CustomButton title={'Update'} customContainerClass={'tab-section-card-button'} onClick={onClickUpdateDetail} size="md"/>
             </>
         )
     }
@@ -288,7 +309,7 @@ const General = ({
         return (
             <>
                 {renderTabCard('Personal Info', renderPersonalInfoTab())}
-                {renderTabCard('Family Member Information', renderFamilyInfoTab())}
+                {/* {renderTabCard('Family Member Information', renderFamilyInfoTab())} */}
             </>
         )
     }
@@ -297,7 +318,7 @@ const General = ({
     const renderContactInfoMainContainer = () => {
         return (
             <>
-                {renderTabCard('Contact Detail', renderContactInfoTab())}
+                {/* {renderTabCard('Contact Detail', renderContactInfoTab())} */}
             </>
         )
     }
@@ -372,7 +393,7 @@ const General = ({
     const renderBankInfoMainContainer = () => {
         return (
             <>
-                {renderTabCard('Bank Detail', renderBankInfoTab())}
+                {/* {renderTabCard('Bank Detail', renderBankInfoTab())} */}
             </>
         )
     }
@@ -411,8 +432,8 @@ const General = ({
     const renderInsuranceInfoMainContainer = () => {
         return (
             <>
-                {renderTabCard('PF Detail', null)}
-                {renderTabCard('Life Insurance', renderInsuranceField())}
+                {/* {renderTabCard('PF Detail', null)} */}
+                {/* {renderTabCard('Life Insurance', renderInsuranceField())} */}
             </>
         )
     }

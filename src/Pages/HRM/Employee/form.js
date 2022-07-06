@@ -24,6 +24,9 @@ const EmployeeForm = props => {
         email: '',
         identityNumber: '',
         dateOfJoining: '',
+        officialEmail: '',
+        reportToId: '',
+        executive: '',
         middleName: '',
         Guardian_Name: ''
     });
@@ -33,6 +36,7 @@ const EmployeeForm = props => {
         groupId: null,
         locationId: null,
         companyDomainId: null,
+        reportToId: null,
         businessUnitId: null,
         departmentId: null,
         jobCategoryId: null,
@@ -143,7 +147,7 @@ const EmployeeForm = props => {
                 <p className='mt-3 company-information-title'>Personal Information</p>
                 <Row>
                     <Col md={3}>
-                        <Input name={'employeeId'} id={'employeeId'} label="Employee Id" onChange={onChangeText} disabled/>
+                        <Input name={'employeeId'} id={'employeeId'} label="Employee Code" onChange={onChangeText} disabled/>
                     </Col>
                     <Col md={3}>
                         <Input name={'firstName'} id={'firstName'} label="First Name*" onChange={onChangeText} required/>
@@ -155,10 +159,10 @@ const EmployeeForm = props => {
                         <Input name={'lastName'} id={'lastName'} label="Last Name" onChange={onChangeText} />
                     </Col>
                     <Col md={3}>
-                        <Input name={'identityNumber'} id={'identityNumber'} label="CNIC*" onChange={onChangeText} />
+                        <Input name={'identityNumber'} id={'identityNumber'} label="CNIC*" onChange={onChangeText} required/>
                     </Col>
                     <Col md={3}>
-                        <Input name={'phone'} id={'phone'} label="Phone*" onChange={onChangeText} type="number" />
+                        <Input name={'phone'} id={'phone'} label="Phone*" onChange={onChangeText} type="number" required/>
                     </Col>
                     <Col md={3}>
                         <Input name={'dateOfBirth'} id={'dateOfBirth'} label="Date Of Birth" onChange={onChangeText} type="date" />
@@ -167,7 +171,7 @@ const EmployeeForm = props => {
                         <Select name={'genderId'} id={'genderId'} label="Gender" onChange={onChangeText} options={lookups?.gender} />
                     </Col>
                     <Col md={3}>
-                        <Input name={'email'} id={'email'} label="Personal Email" onChange={onChangeText} />
+                        <Input name={'email'} id={'email'} label="Personal Email" onChange={onChangeText} required/>
                     </Col>
                     <Col md={3}>
                         <Input name={'Guardian_Name'} id={'Guardian_Name'} label="Father/Husband Name" onChange={onChangeText} />
@@ -175,6 +179,25 @@ const EmployeeForm = props => {
                     <Col md={3}>
                         <Input name={'dateOfJoining'} id={'dateOfJoining'} label="Date Of Joining" onChange={onChangeText} type="date" />
                     </Col>
+                    <Col md={3}>
+                        <Input name={'officialEmail'} id={'officialEmail'} label="Official Email" onChange={onChangeText} type="email" />
+                    </Col>
+                    <Col md={3}>
+                        <Select name={'reportToId'} id={'reportToId'} label="Report To">
+                        <option value="0">Report To</option>
+                        <option value="1">Supervisor</option>
+                        <option value="2">Team Lead</option>
+                        </Select>
+                    </Col>
+                    <Col md={2}>
+                        <div className='executive-checkbox mt-5'>
+                            <input type="checkbox" id="executive" name="executive" value="executive"/>
+                            <label for="executive">   Is Executive</label>
+                        </div>
+                        
+                    </Col>
+
+                    
                     
                 </Row>
             </>

@@ -127,7 +127,7 @@ const CreateShift = props => {
     const renderSubmitButton = () => {
         return (
            
-            <CustomButton title={'Save'} onClick={createShiftDetail} isLoading={loading} />
+            <CustomButton title={'Save'} size="md" onClick={createShiftDetail} isLoading={loading} />
         )
     }
 
