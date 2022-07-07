@@ -35,13 +35,12 @@ const Login = (props) => {
     }
 
 
-    const handleSubmitNonCpcgrLogin = (event) => {
+    const handleForgetPassword = (event) => {
         event.preventDefault();
-
-        dispatch(userActions.loginNonCpcgrUserProfileAction({
-            email: email,
-            password: password
-        }, getPersonalDetailOfLogger));
+        console.log(event)
+        dispatch(userActions.forgetPasswordAction({
+            email: email
+        }));
 
     };
 
@@ -73,7 +72,7 @@ const Login = (props) => {
                         </Form.Group>
 
 
-                        <Button className="col-sm-8 primary-btn mb-3" block="true" size="lg" type="submit" disabled={!validateForm()} onClick={handleSubmitNonCpcgrLogin}>
+                        <Button className="col-sm-8 primary-btn mb-3" block="true" size="lg" type="submit" onClick={handleForgetPassword}>
                             Reset Password
                         </Button>
                         {<div class="reg mb-3">

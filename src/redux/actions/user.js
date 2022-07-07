@@ -7,7 +7,8 @@ import { setCookieOid, setCookieNonCpcgrAuth, setLocalStorage, getLocalStorage, 
 export const userActions = {
     createNonCpcgrUserProfileAction,
     loginNonCpcgrUserProfileAction,
-    getUserProfileIdAction
+    getUserProfileIdAction,
+    forgetPasswordAction
 };
 
 // function createUserProfileAction(data, cb) {
@@ -50,13 +51,13 @@ export const userActions = {
 function createNonCpcgrUserProfileAction(data, cb) {
     return dispatch => {
         dispatch(request());
-        console.log(data,210)
+        console.log(data, 210)
         userService.createNonCpcgrUserProfile(data)
             .then(
                 async response => {
                     const { data } = response;
-                    if (data ) {                        
-                        setLocalStorage(JSON.stringify({ account: {localAccountId: ''}, token: data.Token }), 'currentUser');
+                    if (data) {
+                        setLocalStorage(JSON.stringify({ account: { localAccountId: '' }, token: data.Token }), 'currentUser');
                         setLocalStorage(JSON.stringify(data.id), 'userProfileId');
                         setLocalStorage(JSON.stringify(data.id), 'personalDetailId');
                         setCookieOid(data.Password);
@@ -94,9 +95,9 @@ function loginNonCpcgrUserProfileAction(data, cb) {
             .then(
                 async response => {
                     const { data } = response;
-                    if (data ) {
+                    if (data) {
                         console.log(data)
-                        setLocalStorage(JSON.stringify({ account: {localAccountId: ''}, token: data.Token }), 'currentUser');
+                        setLocalStorage(JSON.stringify({ account: { localAccountId: '' }, token: data.Token }), 'currentUser');
                         setLocalStorage(JSON.stringify(data.id), 'userProfileId');
                         setCookieOid(data.Password);
                         dispatch(success(data));
@@ -123,6 +124,43 @@ function loginNonCpcgrUserProfileAction(data, cb) {
     function request() { return { type: userConstants.GET_NONCPCGR_USER_LOGIN_REQUEST, } }
     function success(nonCpcgrUser) { return { type: userConstants.GET_NONCPCGR_USER_LOGIN_SUCCESS, nonCpcgrUser } }
     function failure(error) { return { type: userConstants.GET_NONCPCGR_USER_LOGIN_FAILURE, error } }
+}
+
+function forgetPasswordAction(data, cb) {
+    return dispatch => {
+        dispatch(request());
+        console.log(data)
+        userService.forgetPasswordUserProfile(data)
+            .then(
+                async response => {
+                    const { data } = response;
+                    if (data) {
+                        console.log(data)
+                        setLocalStorage(JSON.stringify(data.token), 'token');
+                        dispatch(success(data));
+                        if (cb) {
+                            setCookieNonCpcgrAuth(data.Token);
+                            cb();
+                        }
+
+                        return;
+                    }
+
+                    dispatch(failure('No result found'));
+                    dispatch(alertActions.error('No result found'));
+
+                },
+                error => {
+                    dispatch(failure(error));
+                    dispatch(alertActions.error(error.toString()));
+
+                }
+            );
+    };
+
+    function request() { return { type: userConstants.GET_USER_FORGOT_PASSWORD_REQUEST, } }
+    function success(newtoken) { return { type: userConstants.GET_USER_FORGOT_PASSWORD_SUCCESS, newtoken } }
+    function failure(error) { return { type: userConstants.GET_USER_FORGOT_PASSWORD_FAILURE, error } }
 }
 
 function getUserProfileIdAction() {

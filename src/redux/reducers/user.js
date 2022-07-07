@@ -7,7 +7,7 @@ const initialState = {
 }
 
 export function users(state = initialState, action) {
-    const { type, result, error, defaultClient, profileId, nonCpcgrUser  } = action;
+    const { type, result, error, defaultClient, profileId, nonCpcgrUser, newtoken  } = action;
     switch (type) {
         case userConstants.GET_PERMISSIONS_REQUEST:
             return {
@@ -86,6 +86,23 @@ export function users(state = initialState, action) {
                         loading: false
                 };
         case userConstants.GET_NONCPCGR_USER_LOGIN_FAILURE:
+                return {
+                        ...initialState,
+                        error: error,
+                        loading: false
+                };
+                case userConstants.GET_USER_FORGOT_PASSWORD_REQUEST:
+                return {
+                        ...initialState,
+                        loading: true
+                };
+        case userConstants.GET_USER_FORGOT_PASSWORD_SUCCESS:
+                return {
+                        ...initialState,
+                        newtoken: newtoken,
+                        loading: false
+                };
+        case userConstants.GET_USER_FORGOT_PASSWORD_FAILURE:
                 return {
                         ...initialState,
                         error: error,

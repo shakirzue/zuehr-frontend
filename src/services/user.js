@@ -9,7 +9,8 @@ export const userService = {
     // createUserProfile,
     createNonCpcgrUserProfile,
     loginNonCpcgrUserProfile,
-    getUserProfileId
+    getUserProfileId,
+    forgetPasswordUserProfile
 };
 
 // function getPermissions(data) {
@@ -62,12 +63,23 @@ function loginNonCpcgrUserProfile(data) {
     return fetch(`${API_URL}admin/loginNonCpcgrUserProfile`, requestOptions).then(handleResponse);
 }
 
-function getUserProfileId(data) {
-const requestOptions = {
-    method: 'POST',
-    headers: getHeaders(),
-    body: JSON.stringify(data)
-};
+function forgetPasswordUserProfile(data) {
+    console.log(data, 450)
+    const requestOptions = {
+        method: 'POST',
+        headers: getHeaders(),
+        body: JSON.stringify(data)
+    };
 
-return fetch(`${API_URL}admin/getUserProfileByObjectId`, requestOptions).then(handleResponse);
+    return fetch(`${API_URL}admin/forgotPasswordRequest`, requestOptions).then(handleResponse);
+}
+
+function getUserProfileId(data) {
+    const requestOptions = {
+        method: 'POST',
+        headers: getHeaders(),
+        body: JSON.stringify(data)
+    };
+
+    return fetch(`${API_URL}admin/getUserProfileByObjectId`, requestOptions).then(handleResponse);
 }
