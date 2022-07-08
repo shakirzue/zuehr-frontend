@@ -8,7 +8,8 @@ export const userActions = {
     createNonCpcgrUserProfileAction,
     loginNonCpcgrUserProfileAction,
     getUserProfileIdAction,
-    forgetPasswordAction
+    forgetPasswordAction,
+    confirmTokenAction
 };
 
 // function createUserProfileAction(data, cb) {
@@ -195,4 +196,42 @@ function getUserProfileIdAction() {
     function request() { return { type: userConstants.GET_PROFILE_ID_REQUEST, } }
     function success(profileId) { return { type: userConstants.GET_PROFILE_ID_SUCCESS, profileId } }
     function failure(error) { return { type: userConstants.CREATE_PROFILE_FAILURE, error } }
+}
+
+function confirmTokenAction(data, cb) {
+    return dispatch => {
+        console.log(data, 444)
+        dispatch(request());
+
+        userService.confirmTokenUserProfile(data)
+            .then(
+                async response => {
+                    const { status, data } = response;
+                    console.log(response, 480)
+                    if (data.length) {
+
+                        dispatch(success(data, status));
+                        if (cb) {
+                            setCookieNonCpcgrAuth(data.Token);
+                            cb();
+                        }
+
+                        return;
+                    }
+
+                    dispatch(failure(response.message));
+                    dispatch(alertActions.error(response.message));
+
+                },
+                error => {
+                    dispatch(failure(error));
+                    dispatch(alertActions.error(error.toString()));
+
+                }
+            );
+    };
+
+    function request() { return { type: userConstants.GET_USER_CONFIRM_TOKEN_REQUEST, } }
+    function success(isVerified, requestType, statusCode) { return { type: userConstants.GET_USER_CONFIRM_TOKEN_SUCCESS, isVerified, requestType, statusCode } }
+    function failure(error) { return { type: userConstants.GET_USER_CONFIRM_TOKEN_FAILURE, error } }
 }

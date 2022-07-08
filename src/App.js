@@ -6,6 +6,8 @@ import HomePage from "./Pages/Home";
 import LoginPage from "./Pages/Auth/Login";
 import SignUpPage from "./Pages/Auth/SignUp";
 import ForgetPage from "./Pages/Auth/Forget";
+import VerifyPage from "./Pages/Auth/Verify";
+import NewPasswordPage from "./Pages/Auth/NewPassword";
 // import PrivateRoute from './components/PrivateRoute';
 // import PrivateRouteQueryString from './components/PrivateRouteQueryString';
 import {
@@ -67,6 +69,8 @@ function App() {
           <Route path='/' element={<LoginPage />} />
           <Route path='/SignUp' element={<SignUpPage />} />
           <Route path='/Forget' element={<ForgetPage />} />
+          <Route path='/Verify' element={<VerifyPage />} />
+          <Route path='/NewPassword' element={<NewPasswordPage />} />
         </Routes>
       </div>
     </Router>

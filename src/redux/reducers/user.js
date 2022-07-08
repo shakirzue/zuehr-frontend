@@ -7,7 +7,7 @@ const initialState = {
 }
 
 export function users(state = initialState, action) {
-    const { type, result, error, defaultClient, profileId, nonCpcgrUser, newtoken  } = action;
+    const { type, result, error, defaultClient, profileId, nonCpcgrUser, newtoken, isVerified, requestType, statusCode } = action;
     switch (type) {
         case userConstants.GET_PERMISSIONS_REQUEST:
             return {
@@ -59,66 +59,85 @@ export function users(state = initialState, action) {
             };
         case userConstants.CREATE_NONCPCGR_USER_REQUEST:
             return {
-                    ...initialState,
-                    loading: true
+                ...initialState,
+                loading: true
             };
         case userConstants.CREATE_NONCPCGR_USER_SUCCESS:
             return {
-                    ...initialState,
-                    nonCpcgrUser: nonCpcgrUser,
-                    loading: false
+                ...initialState,
+                nonCpcgrUser: nonCpcgrUser,
+                loading: false
             };
         case userConstants.CREATE_NONCPCGR_USER_FAILURE:
             return {
-                    ...initialState,
-                    error: error,
-                    loading: false
+                ...initialState,
+                error: error,
+                loading: false
             };
         case userConstants.GET_NONCPCGR_USER_LOGIN_REQUEST:
-                return {
-                        ...initialState,
-                        loading: true
-                };
+            return {
+                ...initialState,
+                loading: true
+            };
         case userConstants.GET_NONCPCGR_USER_LOGIN_SUCCESS:
-                return {
-                        ...initialState,
-                        nonCpcgrUser: nonCpcgrUser,
-                        loading: false
-                };
+            return {
+                ...initialState,
+                nonCpcgrUser: nonCpcgrUser,
+                loading: false
+            };
         case userConstants.GET_NONCPCGR_USER_LOGIN_FAILURE:
-                return {
-                        ...initialState,
-                        error: error,
-                        loading: false
-                };
-                case userConstants.GET_USER_FORGOT_PASSWORD_REQUEST:
-                return {
-                        ...initialState,
-                        loading: true
-                };
+            return {
+                ...initialState,
+                error: error,
+                loading: false
+            };
+        case userConstants.GET_USER_FORGOT_PASSWORD_REQUEST:
+            return {
+                ...initialState,
+                loading: true
+            };
         case userConstants.GET_USER_FORGOT_PASSWORD_SUCCESS:
-                return {
-                        ...initialState,
-                        newtoken: newtoken,
-                        loading: false
-                };
+            return {
+                ...initialState,
+                newtoken: newtoken,
+                loading: false
+            };
         case userConstants.GET_USER_FORGOT_PASSWORD_FAILURE:
-                return {
-                        ...initialState,
-                        error: error,
-                        loading: false
-                };
+            return {
+                ...initialState,
+                error: error,
+                loading: false
+            };
+        case userConstants.GET_USER_CONFIRM_TOKEN_REQUEST:
+            return {
+                ...initialState,
+                loading: true
+            };
+        case userConstants.GET_USER_CONFIRM_TOKEN_SUCCESS:
+            return {
+                ...initialState,
+                isVerified: isVerified,
+                requestType: requestType,
+                StatusCode: statusCode,
+                loading: false
+            };
+        case userConstants.GET_USER_CONFIRM_TOKEN_FAILURE:
+            return {
+                ...initialState,
+                error: error,
+                loading: false
+            };
         case userConstants.GET_PROFILE_ID_REQUEST:
-                return {
-                        ...initialState,
-                        loading: true
-                    };
+            return {
+                ...initialState,
+                loading: true
+            };
         case userConstants.GET_PROFILE_ID_SUCCESS:
-                return {
-                        ...initialState,
-                        profileId: profileId,
-                        loading: false
-                    };
+            return {
+                ...initialState,
+                profileId: profileId,
+                loading: false
+            };
         default:
             return state
     }

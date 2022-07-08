@@ -480,3 +480,7 @@ svg.MuiSvgIcon-root.add-image {
 svg.MuiSvgIcon-root.print-btn {
   color: #000;
 }
+svg.MuiSvgIcon-root.check-cirle {
+  color: green;
+  font-size: 56px !important;
+}

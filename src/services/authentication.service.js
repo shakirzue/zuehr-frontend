@@ -10,6 +10,9 @@ export const authenticationService = {
     Login,
     SignUp,
     Forget,
+    Verify,
+    NewPassword,
+
     currentUser: currentUserSubject.asObservable(),
     get currentUserValue () {return JSON.parse(localStorage.getItem('currentUser')); },
     get clientId() {return JSON.parse(localStorage.getItem('ClientId'));}
@@ -68,4 +71,24 @@ function Forget() {
     // else
     //     setShowSignUpForm(false)
     window.location.href = '/Forget';
+}
+
+function Verify() {
+    // if(!showSignUpForm){
+    //     setShowSignUpForm(true);
+    //     setShowLoginForm(false);
+    // }
+    // else
+    //     setShowSignUpForm(false)
+    window.location.href = '/Verify';
+}
+
+function NewPassword() {
+    // if(!showSignUpForm){
+    //     setShowSignUpForm(true);
+    //     setShowLoginForm(false);
+    // }
+    // else
+    //     setShowSignUpForm(false)
+    window.location.href = '/New-Password';
 }
