@@ -39,9 +39,8 @@ const Login = (props) => {
         event.preventDefault();
         console.log(event)
         dispatch(userActions.confirmPasswordAction({
-            email: email
+            password: password
         }));
-
     };
 
 
@@ -69,11 +68,20 @@ const Login = (props) => {
                             />
                         </Form.Group>
 
-                        <Button className="col-sm-8 primary-btn mb-3" block="true" size="lg" type="submit" onClick={handleConfirmPassword}>
-                            Confirm Password
+                        <Form.Group className="mb-3 col-sm-8" size="lg" controlId="password">
+                            <Form.Control
+                                type="password"
+                                placeholder={'Confirm Password'}
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </Form.Group>
+
+                        <Button className="col-sm-8 primary-btn mb-3" block="true" size="md" type="submit" onClick={handleConfirmPassword}>
+                            Set Password
                         </Button>
                         {<div class="reg mb-3">
-                            Know Your Previous Password? <a href="/">Sign In</a>
+                            Know Previous Password? <a href="/">Sign In</a>
                         </div>}
                     </Form>
 

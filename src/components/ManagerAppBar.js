@@ -205,7 +205,7 @@ const ManagerAppBar = (props) => {
                     marginLeft: -15,
                   }}
                   alt="User Profile"
-                /><AddAPhotoIcon className="add-image"/>
+                /><AddAPhotoIcon className="add-image" />
                 <ListItemText
                   primary="Zue User"
                   style={{ textDecoration: "none", color: "black", }}
@@ -460,8 +460,8 @@ const ManagerAppBar = (props) => {
             <ListItemIcon>
               <PersonIcon />
               <DropdownButton id="dropdown-basic-button" title="">
-                <Dropdown.Item href="#">Edit Profile</Dropdown.Item>
-                <Dropdown.Item href="#">Something else</Dropdown.Item>
+                <Dropdown.Item href="/HRM/Edit/Employee/${EmployeeId}">Edit Profile</Dropdown.Item>
+                <Dropdown.Item href="/NewPassword">Change Password</Dropdown.Item>
                 <Dropdown.Item onClick={handleLogOut}>Logout</Dropdown.Item>
               </DropdownButton>
             </ListItemIcon>
