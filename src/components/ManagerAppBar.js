@@ -347,6 +347,18 @@ const ManagerAppBar = (props) => {
                     </Link>
 
                     <Link
+                      to="/Attendance/ShiftList"
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemText
+                          primary="Shift Listings"
+                          classes={{ primary: classes.listItemText }}
+                        />
+                      </ListItemButton>
+                    </Link>
+
+                    <Link
                       to="/Attendance/ShiftDetails"
                       style={{ textDecoration: "none", color: "black" }}
                     >

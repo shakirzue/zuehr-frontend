@@ -25,6 +25,8 @@ import ClockIn from './Pages/Attendance/Clock/ClockIn';
 import AttendanceList from './Pages/Attendance/Clock/AttendanceList';
 import ShiftForm from './Pages/Attendance/Shift/ShiftForm';
 import CreateShift from './Pages/Attendance/Shift/CreateShift';
+import AssignShift from './Pages/Attendance/Shift/AssignShift';
+import ShiftList from './Pages/Attendance/Shift/ShiftList';
 import ShiftDetails from './Pages/Attendance/Shift/ShiftDetails';
 //import { history } from './helpers/history'
 //import { store } from './redux/store';
@@ -63,6 +65,8 @@ function App() {
             <Route path='/Attendance/AttendanceList' element={<AttendanceList />} />
             <Route path='/Attendance/ShiftForm' element={<ShiftForm />} />
             <Route path='/Attendance/CreateShift' element={<CreateShift />} />
+            <Route path='/Attendance/AssignShift' element={<AssignShift />} />
+            <Route path='/Attendance/ShiftList' element={<ShiftList />} />
             <Route path='/Attendance/ShiftDetails' element={<ShiftDetails />} />
           </Route>
           <Route path='/Home' element={<HomePage />} />

@@ -26,9 +26,12 @@ const General = ({
     const [familyDetails, setFamilyDetails] = useState({
         memberName: '',
         relationshipId: '',
+        shiftTemplateId: '',
         dateOfBirth: '',
         qualification: null,
     });
+
+
 
     //list state
     const [familyInfo, setFamilyInfo] = useState([]);
@@ -70,6 +73,7 @@ const General = ({
         })
 
     }
+
 
     const onChangeFamilyInfo = (name, value) => {
         setFamilyDetails({
@@ -128,6 +132,7 @@ const General = ({
         setContactDetailFormInput(!contactDetailFormInput)
     }
 
+
     const renderMainTabs = () => {
         return (
             <div className='employee-profiling-detail-tabs-container'>
@@ -144,13 +149,13 @@ const General = ({
                     <Tab eventKey={'contact_detail'} title={'Next of Kin'}>
                         {renderContactInfoMainContainer()}
                     </Tab>
-                    
+
                     <Tab eventKey={'life_insurance'} title={'Insurance Details'}>
                         {renderInsuranceInfoMainContainer()}
                     </Tab>
-                    {/* <Tab eventKey={'personality_detail'} title={'Personality Detail'}>
-                        {renderPersonalityInfoMainContainer()}
-                    </Tab> */}
+                    <Tab eventKey={'personality_detail'} title={'Employee Master Shift'}>
+                        {renderEmployeeMasterShiftContainer()}
+                    </Tab>
                 </Tabs>
             </div>
         )
@@ -173,7 +178,7 @@ const General = ({
             <>
                 <Row>
                     <Col md={3}>
-                        <Input name={'employeeId'} id={'employeeId'} label="Employee Code" onChange={onChangeText} defaultValue={personalDetails.employeeId} disabled/>
+                        <Input name={'employeeId'} id={'employeeId'} label="Employee Code" onChange={onChangeText} defaultValue={personalDetails.employeeId} disabled />
                     </Col>
                     <Col md={3}>
                         <Input name={'identityNumber'} id={'identityNumber'} label="CNIC" onChange={onChangeText} defaultValue={personalDetails.identityNumber} />
@@ -210,20 +215,20 @@ const General = ({
                     </Col>
                     <Col md={3}>
                         <Select name={'reportToId'} id={'reportToId'} label="Report To">
-                        <option value="0">Report To</option>
-                        <option value="1">Supervisor</option>
-                        <option value="2">Team Lead</option>
+                            <option value="0">Report To</option>
+                            <option value="1">Supervisor</option>
+                            <option value="2">Team Lead</option>
                         </Select>
                     </Col>
                     <Col md={2}>
                         <div className='executive-checkbox mt-5'>
-                            <input type="checkbox" id="executive" name="executive" value="executive"/>
+                            <input type="checkbox" id="executive" name="executive" value="executive" />
                             <label for="executive">   Is Executive</label>
                         </div>
-                        
+
                     </Col>
                 </Row>
-                <CustomButton title={'Update'} customContainerClass={'tab-section-card-button'} onClick={onClickUpdateDetail} size="md"/>
+                <CustomButton title={'Update'} customContainerClass={'tab-section-card-button'} onClick={onClickUpdateDetail} size="md" />
             </>
         )
     }
@@ -470,15 +475,255 @@ const General = ({
         )
     }
 
-    //personality tab
+    //Employee Master Shift tab
 
-    const renderPersonalityInfoMainContainer = () => {
+    const renderEmployeeMasterShiftContainer = () => {
         return (
             <>
-                {renderTabCard('Personality Detail', null)}
+                {renderTabCard('Employee Master Shift', renderEmployeeMasterShiftTab())}
+
             </>
         )
     }
+
+    const renderEmployeeMasterShiftTab = () => {
+        return (
+            <>
+                <Row>
+                    <Col md={4}>
+                        <Input className='col-sm-12'
+                            name={''}
+                            id={''}
+                            label="Employee Name :"
+                            placeholder="Junaid Khan" disabled />
+                    </Col>
+                    <Col md={4}>
+                        {/* <Select name={'shiftTemplateId'} id={'shiftTemplateId'} label="Timezone: " options={lookups?.shiftTemplate} />
+                            */}
+                        <div className='select-component-container'>
+                            <label>Shift Template:</label>
+                            <select className='select-component-item mr-1 border-1 col-sm-12 rounded-3 p-1' name={'shiftTemplateId'} id={'shiftTemplateId'} >
+                                <option value='TIMEZONE' selected="selected">Select Shift Template</option>
+                                <option value='EST'>Option 1</option>
+                                <option value='PST'>Option 2</option>
+                            </select>
+                        </div>
+                    </Col>
+                    <Col md={4}>
+                        {/* <Select name={'shiftTemplateId'} id={'shiftTemplateId'} label="Timezone: " options={lookups?.shiftTemplate} />
+                            */}
+                        <div className='select-component-container'>
+                            <label>Timezone:</label>
+                            <select className='select-component-item mr-1 border-1 col-sm-12 rounded-3 p-1' name={'shiftTemplateId'} id={'shiftTemplateId'} >
+                                <option value='TIMEZONE' selected="selected">Select Timezone</option>
+                                <option value='EST'>Eastern State Time (EST)</option>
+                                <option value='PST'>Pakistan State Time (PST)</option>
+                            </select>
+                        </div>
+                    </Col>
+                    <Col md={6} className='mt-3'>
+                        <div className='day-field d-flex mb-3'><label className='col-sm-2'>Monday</label>
+                            <div className='col-sm-2 d-inline-block'>
+
+                                <label class="switch">
+                                    <input data-on="On" type="checkbox" id="toggle-switch" />
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div className='col-sm-4 d-flex'>
+                                <select className='select-component-item mr-1 border-1 rounded-3' name="startTimeHour" >
+                                    <option value='00' selected="selected">09:00 Am</option>
+                                    <option value='01'>09:00 Am</option>
+                                    <option value='02'>10:00 Am</option>
+                                    <option value='03'>11:00 Am</option>
+                                    <option value='04'>12:00 Pm</option>
+                                </select>
+
+                                <select className='select-component-item ml-1 border-1 rounded-3' name="startTimeHour" >
+                                    <option value='00' selected="selected">09:00 Pm</option>
+                                    <option value='01'>09:00 Am</option>
+                                    <option value='02'>10:00 Am</option>
+                                    <option value='03'>11:00 Am</option>
+                                    <option value='04'>12:00 Pm</option>
+                                </select>
+                            </div>
+                        </div>
+                    </Col>
+                    <Col md={6} className='mt-3'>
+                        <div className='day-field d-flex mb-3'><label className='col-sm-2'>Tuesday</label>
+                            <div className='col-sm-2 d-inline-block'>
+
+                                <label class="switch">
+                                    <input data-on="On" type="checkbox" id="toggle-switch" />
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div className='col-sm-4 d-flex'>
+                                <select className='select-component-item mr-1 border-1 rounded-3' name="startTimeHour" >
+                                    <option value='00' selected="selected">09:00 Am</option>
+                                    <option value='01'>09:00 Am</option>
+                                    <option value='02'>10:00 Am</option>
+                                    <option value='03'>11:00 Am</option>
+                                    <option value='04'>12:00 Pm</option>
+                                </select>
+
+                                <select className='select-component-item ml-1 border-1 rounded-3' name="startTimeHour" >
+                                    <option value='00' selected="selected">09:00 Pm</option>
+                                    <option value='01'>09:00 Am</option>
+                                    <option value='02'>10:00 Am</option>
+                                    <option value='03'>11:00 Am</option>
+                                    <option value='04'>12:00 Pm</option>
+                                </select>
+                            </div>
+                        </div>
+                    </Col>
+                    <Col md={6}>
+                        <div className='day-field d-flex mb-3'><label className='col-sm-2'>Wednesday</label>
+                            <div className='col-sm-2 d-inline-block'>
+
+                                <label class="switch">
+                                    <input data-on="On" type="checkbox" id="toggle-switch" />
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div className='col-sm-4 d-flex'>
+                                <select className='select-component-item mr-1 border-1 rounded-3' name="startTimeHour" >
+                                    <option value='00' selected="selected">09:00 Am</option>
+                                    <option value='01'>09:00 Am</option>
+                                    <option value='02'>10:00 Am</option>
+                                    <option value='03'>11:00 Am</option>
+                                    <option value='04'>12:00 Pm</option>
+                                </select>
+
+                                <select className='select-component-item ml-1 border-1 rounded-3' name="startTimeHour" >
+                                    <option value='00' selected="selected">09:00 Pm</option>
+                                    <option value='01'>09:00 Am</option>
+                                    <option value='02'>10:00 Am</option>
+                                    <option value='03'>11:00 Am</option>
+                                    <option value='04'>12:00 Pm</option>
+                                </select>
+                            </div>
+                        </div>
+                    </Col>
+                    <Col md={6}>
+                        <div className='day-field d-flex mb-3'><label className='col-sm-2'>Thursday</label>
+                            <div className='col-sm-2 d-inline-block'>
+
+                                <label class="switch">
+                                    <input data-on="On" type="checkbox" id="toggle-switch" />
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div className='col-sm-4 d-flex'>
+                                <select className='select-component-item mr-1 border-1 rounded-3' name="startTimeHour" >
+                                    <option value='00' selected="selected">09:00 Am</option>
+                                    <option value='01'>09:00 Am</option>
+                                    <option value='02'>10:00 Am</option>
+                                    <option value='03'>11:00 Am</option>
+                                    <option value='04'>12:00 Pm</option>
+                                </select>
+
+                                <select className='select-component-item ml-1 border-1 rounded-3' name="startTimeHour" >
+                                    <option value='00' selected="selected">09:00 Pm</option>
+                                    <option value='01'>09:00 Am</option>
+                                    <option value='02'>10:00 Am</option>
+                                    <option value='03'>11:00 Am</option>
+                                    <option value='04'>12:00 Pm</option>
+                                </select>
+                            </div>
+                        </div>
+                    </Col>
+                    <Col md={6}>
+                        <div className='day-field d-flex mb-3'><label className='col-sm-2'>Friday</label>
+                            <div className='col-sm-2 d-inline-block'>
+
+                                <label class="switch">
+                                    <input data-on="On" type="checkbox" id="toggle-switch" />
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div className='col-sm-4 d-flex'>
+                                <select className='select-component-item mr-1 border-1 rounded-3' name="startTimeHour" >
+                                    <option value='00' selected="selected">09:00 Am</option>
+                                    <option value='01'>09:00 Am</option>
+                                    <option value='02'>10:00 Am</option>
+                                    <option value='03'>11:00 Am</option>
+                                    <option value='04'>12:00 Pm</option>
+                                </select>
+
+                                <select className='select-component-item ml-1 border-1 rounded-3' name="startTimeHour" >
+                                    <option value='00' selected="selected">09:00 Pm</option>
+                                    <option value='01'>09:00 Am</option>
+                                    <option value='02'>10:00 Am</option>
+                                    <option value='03'>11:00 Am</option>
+                                    <option value='04'>12:00 Pm</option>
+                                </select>
+                            </div>
+                        </div>
+                    </Col>
+                    <Col md={6}>
+                        <div className='day-field d-flex mb-3'><label className='col-sm-2'>Saturday</label>
+                            <div className='col-sm-2 d-inline-block'>
+
+                                <label class="switch">
+                                    <input data-on="On" type="checkbox" id="toggle-switch" />
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div className='col-sm-4 d-flex'>
+                                <select className='select-component-item mr-1 border-1 rounded-3' name="startTimeHour" >
+                                    <option value='00' selected="selected">09:00 Am</option>
+                                    <option value='01'>09:00 Am</option>
+                                    <option value='02'>10:00 Am</option>
+                                    <option value='03'>11:00 Am</option>
+                                    <option value='04'>12:00 Pm</option>
+                                </select>
+
+                                <select className='select-component-item ml-1 border-1 rounded-3' name="startTimeHour" >
+                                    <option value='00' selected="selected">09:00 Pm</option>
+                                    <option value='01'>09:00 Am</option>
+                                    <option value='02'>10:00 Am</option>
+                                    <option value='03'>11:00 Am</option>
+                                    <option value='04'>12:00 Pm</option>
+                                </select>
+                            </div>
+                        </div>
+                    </Col>
+                    <Col md={6}>
+                        <div className='day-field d-flex mb-3'><label className='col-sm-2'>Sunday</label>
+                            <div className='col-sm-2 d-inline-block'>
+
+                                <label class="switch">
+                                    <input data-on="On" type="checkbox" id="toggle-switch" />
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div className='col-sm-4 d-flex'>
+                                <select className='select-component-item mr-1 border-1 rounded-3' name="startTimeHour" >
+                                    <option value='00' selected="selected">09:00 Am</option>
+                                    <option value='01'>09:00 Am</option>
+                                    <option value='02'>10:00 Am</option>
+                                    <option value='03'>11:00 Am</option>
+                                    <option value='04'>12:00 Pm</option>
+                                </select>
+
+                                <select className='select-component-item ml-1 border-1 rounded-3' name="startTimeHour" >
+                                    <option value='00' selected="selected">09:00 Pm</option>
+                                    <option value='01'>09:00 Am</option>
+                                    <option value='02'>10:00 Am</option>
+                                    <option value='03'>11:00 Am</option>
+                                    <option value='04'>12:00 Pm</option>
+                                </select>
+                            </div>
+                        </div>
+                    </Col>
+
+                </Row>
+                {/* <CustomButton title={'Add'} customContainerClass={'tab-section-card-button'} /> */}
+            </>
+        )
+    }
+
 
     return (
         <div>
