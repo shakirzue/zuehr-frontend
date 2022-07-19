@@ -67,9 +67,9 @@ const ShiftList = props => {
                         <div className="row">
                             <div className="col-md-3 d-flex">
                                 <div class="dt-buttons btn-group">
-                                    <button class="btn btn-print buttons-excel buttons-html5 bg-transparent" tabindex="0" aria-controls="example1" type="button"><span><LibraryBooksIcon className='print-btn' /></span></button>
-                                    <button class="btn btn-print buttons-pdf buttons-html5 bg-transparent" tabindex="0" aria-controls="example1" type="button"><span><PictureAsPdfIcon className='print-btn' /></span></button>
-                                    <button class="btn btn-print buttons-print bg-transparent" tabindex="0" aria-controls="example1" type="button"><span><PrintIcon className='print-btn' /></span></button>
+                                <button class="btn btn-print buttons-excel buttons-html5 bg-transparent" tabindex="0" aria-controls="example1" type="button"><span><div class="print-btn"><LibraryBooksIcon /><span className='print-btntext'>Excel</span></div></span></button> 
+                                <button class="btn btn-print buttons-pdf buttons-html5 bg-transparent" tabindex="0" aria-controls="example1" type="button"><span><div class="print-btn"><PictureAsPdfIcon /><span className='print-btntext'>PDF</span></div></span></button> 
+                                <button class="btn btn-print buttons-print bg-transparent" tabindex="0" aria-controls="example1" type="button"><span><div class="print-btn"><PrintIcon /><span className='print-btntext'>Print</span></div></span></button> 
                                 </div>
                             </div>
                             <div className="col-md-6 d-flex"></div>
@@ -95,7 +95,7 @@ const ShiftList = props => {
                                     <tbody>
                                         <tr>
                                             <td class="sorting_1 dtr-control">IT Shift</td>
-                                            <td class="sorting_1 dtr-control">11:00 AM to 8:00 PM</td>
+                                            <td class="sorting_1 dtr-control w-50">11:00 AM to 8:00 PM</td>
                                             <td class="sorting_1 dtr-control" style={{ color: "#28cc28" }}>Active </td>
                                             <td class="sorting_1 dtr-control">
                                                 {/* <Link to={`/HRM/Edit/Shift/${EmployeeId}`}> */}
@@ -119,6 +119,39 @@ const ShiftList = props => {
                                             <td class="sorting_1 dtr-control">Voice Team</td>
                                             <td class="sorting_1 dtr-control">09:00 AM to 6:00 PM</td>
                                             <td class="sorting_1 dtr-control">InActive </td>
+                                            <td class="sorting_1 dtr-control">
+                                                {/* <Link to={`/HRM/Edit/Shift/${EmployeeId}`}> */}
+                                                <Link to={`/HRM/Edit/Shift`}>
+                                                    <Edit /><Delete />
+                                                </Link>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="sorting_1 dtr-control">IT Shift</td>
+                                            <td class="sorting_1 dtr-control w-50">11:00 AM to 8:00 PM</td>
+                                            <td class="sorting_1 dtr-control" style={{ color: "#28cc28" }}>Active </td>
+                                            <td class="sorting_1 dtr-control">
+                                                {/* <Link to={`/HRM/Edit/Shift/${EmployeeId}`}> */}
+                                                <Link to={`/HRM/Edit/Shift`}>
+                                                    <Edit /><Delete />
+                                                </Link>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="sorting_1 dtr-control">IT Shift</td>
+                                            <td class="sorting_1 dtr-control w-50">11:00 AM to 8:00 PM</td>
+                                            <td class="sorting_1 dtr-control" style={{ color: "#28cc28" }}>Active </td>
+                                            <td class="sorting_1 dtr-control">
+                                                {/* <Link to={`/HRM/Edit/Shift/${EmployeeId}`}> */}
+                                                <Link to={`/HRM/Edit/Shift`}>
+                                                    <Edit /><Delete />
+                                                </Link>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="sorting_1 dtr-control">IT Shift</td>
+                                            <td class="sorting_1 dtr-control w-50">11:00 AM to 8:00 PM</td>
+                                            <td class="sorting_1 dtr-control" style={{ color: "#28cc28" }}>Active </td>
                                             <td class="sorting_1 dtr-control">
                                                 {/* <Link to={`/HRM/Edit/Shift/${EmployeeId}`}> */}
                                                 <Link to={`/HRM/Edit/Shift`}>

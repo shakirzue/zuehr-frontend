@@ -120,10 +120,10 @@ const EmployeeList = props => {
                         <div className="row">
                              <div className="col-sm-12 col-md-6 d-flex">
                             {/*<div class="dt-buttons btn-group d-flex">   
-                                <button class="btn btn-print buttons-excel buttons-html5 bg-transparent" tabindex="0" aria-controls="example1" type="button"><span><LibraryBooksIcon className='print-btn'/></span></button> 
-                                <button class="btn btn-print buttons-pdf buttons-html5 bg-transparent" tabindex="0" aria-controls="example1" type="button"><span><PictureAsPdfIcon className='print-btn'/></span></button> 
-                                <button class="btn btn-print buttons-print bg-transparent" tabindex="0" aria-controls="example1" type="button"><span><PrintIcon className='print-btn'/></span></button> 
-                            </div> */}
+                                <button class="btn btn-print buttons-excel buttons-html5 bg-transparent" tabindex="0" aria-controls="example1" type="button"><span><div class="print-btn"><LibraryBooksIcon /><span className='print-btntext'>Excel</span></div></span></button> 
+                                <button class="btn btn-print buttons-pdf buttons-html5 bg-transparent" tabindex="0" aria-controls="example1" type="button"><span><div class="print-btn"><PictureAsPdfIcon /><span className='print-btntext'>PDF</span></div></span></button> 
+                                <button class="btn btn-print buttons-print bg-transparent" tabindex="0" aria-controls="example1" type="button"><span><div class="print-btn"><PrintIcon /><span className='print-btntext'>Print</span></div></span></button> 
+                                 </div> */}
                             </div>
                             <div className="col-sm-12 col-md-6">
                          

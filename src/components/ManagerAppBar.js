@@ -10,7 +10,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Drawer from "@material-ui/core/Drawer";
 import { ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 import List from "@material-ui/core/List";
-import { Link } from "react-router-dom";
+import { Link, useLocation  } from "react-router-dom";
 import ListAltIcon from "@material-ui/icons/ListAlt";
 import PersonIcon from "@mui/icons-material/Person";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -70,11 +70,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ManagerAppBar = (props) => {
+  console.log(props,420)
+
 
   const classes = useStyles();
 
 
   const { instance } = useMsal();
+
+  const search = useLocation().search;
+  const name = new URLSearchParams(search).get('menu');
 
   var [permissionDetails, setPermissionDetails] = useState([]);
   var [userClientsList, setUserClientsList] = useState([]);
@@ -87,6 +92,8 @@ const ManagerAppBar = (props) => {
   const [cmsapimenuopen, setCmsApiOpen] = useState(false);
   const [hrmapimenuopen, setHrmApiOpen] = useState(false);
   const [hrmattendanceopen, setHrmattendanceopen] = useState(false);
+  const [hrmemployeeopen, setHrmemployeeopen] = useState(false);
+  const [isActive, setIsActive] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const [isProfileSwitched, setIsProfileSwitched] = useState(localStorage.getItem('IsProfileSwitched') ?? false);
   const open = Boolean(anchorEl);
@@ -148,6 +155,11 @@ const ManagerAppBar = (props) => {
     setHrmattendanceopen(!hrmattendanceopen);
   };
 
+  const handleEmployeeClick = () => {
+    setHrmemployeeopen(!hrmemployeeopen);
+    setIsActive(current => !current);
+  };
+
 
   const handleNameClick = (event) => {
     if (userClientsList.length > 0)
@@ -172,8 +184,23 @@ const ManagerAppBar = (props) => {
     history.listen((location, action) => {
       store.dispatch(alertActions.clear());
     });
-  }, []);
 
+    if(name === "Employee-list")
+    handleEmployeeClick();
+
+    if(name === "Clock")
+    handleAttendanceClick();
+
+    if(name === "Attendance-list")
+    handleAttendanceClick();
+
+    if(name === "CreateShift")
+    handleAttendanceClick();
+
+    if(name === "ShiftList")
+    handleAttendanceClick();
+
+  }, []);
 
   return (
 
@@ -238,13 +265,11 @@ const ManagerAppBar = (props) => {
                     <AssignmentOutlinedIcon style={{ color: "var(--primary-color)" }} />
                   </ListItemIcon>
                   <ListItemText primary="Daily Tasks" />
-                  {hrmapimenuopen ? <ExpandLess /> : <ExpandMore />}
+                  {/* {hrmapimenuopen ? <ExpandLess /> : <ExpandMore />} */}
                 </ListItemButton>
-                <Collapse in={hrmapimenuopen} timeout="auto" unmountOnExit>
+                {/* <Collapse in={hrmapimenuopen} timeout="auto" unmountOnExit>
                   <List component="div" disablePadding>
-                    {/* {
-                    PermissionProvider({ permissionDetails: permissionDetails, moduleName: ModuleName.DMEService, permissionLevel: "Read" }) ? */}
-
+                   
                     <Link
                       to="#"
                       style={{ textDecoration: "none", color: "black" }}
@@ -268,28 +293,29 @@ const ManagerAppBar = (props) => {
                       </ListItemButton>
                     </Link>
                   </List>
-                </Collapse>
+                </Collapse> */}
 
-
-                <ListItemButton onClick={handleHrmApiClick}>
+                <ListItemButton onClick={handleEmployeeClick} >
                   <ListItemIcon>
                     <NaturePeopleOutlinedIcon style={{ color: "var(--primary-color)" }} />
                   </ListItemIcon>
                   <ListItemText primary="Employee Setup" />
-                  {hrmapimenuopen ? <ExpandLess /> : <ExpandMore />}
+                  {hrmemployeeopen ? <ExpandLess /> : <ExpandMore />}
                 </ListItemButton>
-                <Collapse in={hrmapimenuopen} timeout="auto" unmountOnExit>
+                <Collapse in={hrmemployeeopen} timeout="auto" unmountOnExit>
                   <List component="div" disablePadding>
                     {/* {
                     PermissionProvider({ permissionDetails: permissionDetails, moduleName: ModuleName.DMEService, permissionLevel: "Read" }) ? */}
 
                     <Link
-                      to="/HRM/Employees"
+                      to="/HRM/Employees?menu=Employee-list"
                       style={{ textDecoration: "none", color: "black" }}
+                      parentIndex={1}
                     >
                       <ListItemButton sx={{ pl: 4 }}>
-                        <ListItemText
+                        <ListItemText 
                           primary="Employees"
+                          style={{ textDecoration: "none",  color: isActive ? 'gray' : '', }}
                           classes={{ primary: classes.listItemText }}
                         />
                       </ListItemButton>
@@ -311,8 +337,9 @@ const ManagerAppBar = (props) => {
                     PermissionProvider({ permissionDetails: permissionDetails, moduleName: ModuleName.DMEService, permissionLevel: "Read" }) ? */}
 
                     <Link
-                      to="/Attendance/clockIn"
-                      style={{ textDecoration: "none", color: "black" }}
+                      to="/Attendance/clockIn?menu=Clock"
+                      style={{ textDecoration: "none",  color:"black" }}
+                    
                     >
                       <ListItemButton sx={{ pl: 4 }}>
                         <ListItemText
@@ -323,7 +350,7 @@ const ManagerAppBar = (props) => {
                     </Link>
 
                     <Link
-                      to="/Attendance/AttendanceList"
+                      to="/Attendance/AttendanceList?menu=Attendance-list"
                       style={{ textDecoration: "none", color: "black" }}
                     >
                       <ListItemButton sx={{ pl: 4 }}>
@@ -335,7 +362,7 @@ const ManagerAppBar = (props) => {
                     </Link>
 
                     <Link
-                      to="/Attendance/CreateShift"
+                      to="/Attendance/CreateShift?menu=CreateShift"
                       style={{ textDecoration: "none", color: "black" }}
                     >
                       <ListItemButton sx={{ pl: 4 }}>
@@ -347,7 +374,7 @@ const ManagerAppBar = (props) => {
                     </Link>
 
                     <Link
-                      to="/Attendance/ShiftList"
+                      to="/Attendance/ShiftList?menu=ShiftList"
                       style={{ textDecoration: "none", color: "black" }}
                     >
                       <ListItemButton sx={{ pl: 4 }}>
@@ -358,7 +385,7 @@ const ManagerAppBar = (props) => {
                       </ListItemButton>
                     </Link>
 
-                    <Link
+                    {/* <Link
                       to="/Attendance/ShiftDetails"
                       style={{ textDecoration: "none", color: "black" }}
                     >
@@ -368,7 +395,7 @@ const ManagerAppBar = (props) => {
                           classes={{ primary: classes.listItemText }}
                         />
                       </ListItemButton>
-                    </Link>
+                    </Link> */}
 
                   </List>
                 </Collapse>
