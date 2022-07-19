@@ -426,10 +426,7 @@ button#dropdown-basic-button {
   box-shadow: none;
   margin-bottom: 0rem;
 }
-table tr td {
-  text-align: left !important;
-  font-size: 14px;
-}
+
 .dataTables_info{
   display: flex;
 }
@@ -562,7 +559,6 @@ select.select-component-item {
 .print-btn {
   position: relative;
   display: inline-block;
-  /* border-bottom: 1px dotted black; */
 }
 
 .print-btn .print-btntext {
@@ -607,4 +603,16 @@ table.table-hover th {
 }
 .MuiCollapse-wrapperInner.MuiCollapse-vertical.css-9l5vo-MuiCollapse-wrapperInner {
   background-color: #f4f4f4;
+}
+table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td {
+  border-bottom-width: 1px !important;
+}
+table thead tr th {
+  text-align: center !important;
+}
+/* table tbody td {
+  text-align: center !important;
+} */
+table tr td {
+  font-size: 14px;
 }

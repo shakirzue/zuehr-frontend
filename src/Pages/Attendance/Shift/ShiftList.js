@@ -56,10 +56,6 @@ const ShiftList = props => {
                         <Link to={'/Attendance/CreateShift'}>
                             <CustomButton className="btn-transparent mb-4 ml-1" title={'Add Shift'} size="" />
                         </Link>
-                        
-                        {/* <Link to={'/Attendance/AssignShift'}>
-                            <CustomButton className="btn-transparent mb-4" title={'Assign Employee'} size="" />
-                        </Link> */}
                     </div>
 
 
