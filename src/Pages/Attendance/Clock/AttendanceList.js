@@ -63,7 +63,7 @@ const AttendanceList = props => {
                     <form onSubmit={searchData}>
                         <div className='row'>
 
-                        <div className="col-sm-12 col-md-3" style={{ paddingTop: 36 }}>
+                        <div className="col-sm-12 col-md-2" style={{ paddingTop: 30 }}>
                                 <div class="dt-buttons btn-group">   
                                 <button class="btn btn-print buttons-excel buttons-html5 bg-transparent" tabindex="0" aria-controls="example1" type="button"><span><div class="print-btn"><LibraryBooksIcon /><span className='print-btntext'>Excel</span></div></span></button> 
                                 <button class="btn btn-print buttons-pdf buttons-html5 bg-transparent" tabindex="0" aria-controls="example1" type="button"><span><div class="print-btn"><PictureAsPdfIcon /><span className='print-btntext'>PDF</span></div></span></button> 
@@ -71,14 +71,34 @@ const AttendanceList = props => {
                                 </div>
                             </div>
 
-                            <div className="col-sm-12 col-md-4">
+                            <div className='select-dept col-sm-12 col-md-2 mt-3'>
+                                <select className='select-component-item mr-1 border-1 rounded-3 col-sm-12 p-2 mt-3' name="startTimeHour" >
+                                            <option value='00' selected="selected">Select Dept</option>
+                                            <option value='01'>IT</option>
+                                            <option value='02'>Marketing</option>
+                                            <option value='03'>Sales</option>
+                                            <option value='04'>Voice</option>
+                                </select>
+                            </div>
+
+                            <div className='select-employee col-sm-12 col-md-3 mt-3'>
+                                <select className='select-component-item mr-1 border-1 rounded-3 col-sm-12 p-2 mt-3' name="startTimeHour" >
+                                            <option value='00' selected="selected">Select Employee</option>
+                                            <option value='01'>Daniyal Khan</option>
+                                            <option value='02'>Saqib Nisar</option>
+                                            <option value='03'>Martin Guptill</option>
+                                            <option value='04'>Kane Williamson</option>
+                                </select>
+                            </div>
+
+                            <div className="col-sm-12 col-md-2">
                                 <div className="select-component-container">
                                     <label className="select-component-label form-label" for="family_dob">From Date</label>
                                     <input name="from_date" type="date" value={dateFilter.from_date} onChange={handleInputs} className="select-component-item form-control" />
                                 </div>
                             </div>
 
-                            <div className="col-sm-12 col-md-4">
+                            <div className="col-sm-12 col-md-2">
                                 <div class="select-component-container">
                                     <label className="select-component-label form-label" for="family_dob">To Date</label>
                                     <input name="to_date" type="date" value={dateFilter.to_date} onChange={handleInputs} className="select-component-item form-control" />

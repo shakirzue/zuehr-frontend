@@ -9,6 +9,7 @@ export const userActions = {
     loginNonCpcgrUserProfileAction,
     getUserProfileIdAction,
     forgetPasswordAction,
+    forgetPasswordRequestAction,
     confirmTokenAction
 };
 
@@ -91,19 +92,18 @@ function createNonCpcgrUserProfileAction(data, cb) {
 function loginNonCpcgrUserProfileAction(data, cb) {
     return dispatch => {
         dispatch(request());
-        console.log(data)
+
         userService.loginNonCpcgrUserProfile(data)
             .then(
                 async response => {
-                    const { data } = response;
-                    if (data) {
-                        console.log(data)
-                        setLocalStorage(JSON.stringify({ account: { localAccountId: '' }, token: data.Token }), 'currentUser');
-                        setLocalStorage(JSON.stringify(data.id), 'userProfileId');
-                        setCookieOid(data.Password);
-                        dispatch(success(data));
+                    const { token, userProfileId } = response;
+                    if (token) {
+                        setLocalStorage(JSON.stringify({ account: { localAccountId: '' }, token: token }), 'currentUser');
+                        setLocalStorage(JSON.stringify(userProfileId), 'userProfileId');
+                        setCookieOid(0);
+                        dispatch(success(token));
                         if (cb) {
-                            setCookieNonCpcgrAuth(data.Token);
+                            setCookieNonCpcgrAuth(token);
                             cb();
                         }
 
@@ -115,6 +115,7 @@ function loginNonCpcgrUserProfileAction(data, cb) {
 
                 },
                 error => {
+                    console.log(error,4646)
                     dispatch(failure(error));
                     dispatch(alertActions.error(error.toString()));
 
@@ -127,20 +128,20 @@ function loginNonCpcgrUserProfileAction(data, cb) {
     function failure(error) { return { type: userConstants.GET_NONCPCGR_USER_LOGIN_FAILURE, error } }
 }
 
-function forgetPasswordAction(data, cb) {
+function forgetPasswordRequestAction(data, cb) {
     return dispatch => {
         dispatch(request());
-        console.log(data)
         userService.forgetPasswordUserProfile(data)
             .then(
                 async response => {
-                    const { data } = response;
-                    if (data) {
-                        console.log(data)
-                        setLocalStorage(JSON.stringify(data.token), 'token');
-                        dispatch(success(data));
+                    const { token, employeeNumber } = response;
+console.log(token,555)
+                    if (token !== "") {
+                        setLocalStorage(token, 'token');
+                        setLocalStorage(employeeNumber, 'userProfileId');
+                        dispatch(success(token));
                         if (cb) {
-                            setCookieNonCpcgrAuth(data.Token);
+                           // setCookieNonCpcgrAuth(isPasswordChanged);
                             cb();
                         }
 
@@ -160,9 +161,118 @@ function forgetPasswordAction(data, cb) {
     };
 
     function request() { return { type: userConstants.GET_USER_FORGOT_PASSWORD_REQUEST, } }
-    function success(newtoken) { return { type: userConstants.GET_USER_FORGOT_PASSWORD_SUCCESS, newtoken } }
+    function success(token) { return { type: userConstants.GET_USER_FORGOT_PASSWORD_SUCCESS, token } }
     function failure(error) { return { type: userConstants.GET_USER_FORGOT_PASSWORD_FAILURE, error } }
 }
+
+function forgetPasswordAction(data, cb) {
+    return dispatch => {
+        dispatch(request());
+        userService.forgetPassword(data)
+            .then(
+                async response => {
+                    const { isPasswordUpdated } = response;
+
+                    if (isPasswordUpdated) {
+
+                        dispatch(success(isPasswordUpdated));
+                        if (cb) {
+                            //setCookieNonCpcgrAuth(isPasswordUpdated);
+                            cb();
+                        }
+
+                        return;
+                    }
+
+                    dispatch(failure('No result found'));
+                    dispatch(alertActions.error('No result found'));
+
+                },
+                error => {
+                    dispatch(failure(error));
+                    dispatch(alertActions.error(error.toString()));
+
+                }
+            );
+    };
+
+    function request() { return { type: userConstants.GET_USER_PASSWORD_UPDATED_REQUEST, } }
+    function success(isPasswordUpdated) { return { type: userConstants.GET_USER_PASSWORD_UPDATED_SUCCESS, isPasswordUpdated } }
+    function failure(error) { return { type: userConstants.GET_USER_FPASSWORD_UPDATED_FAILURE, error } }
+}
+
+function resetPasswordAction(data, cb) {
+    return dispatch => {
+        dispatch(request());
+        userService.resetPassword(data)
+            .then(
+                async response => {
+                    const { isPasswordChanged } = response;
+
+                    if (isPasswordChanged) {
+
+                        dispatch(success(isPasswordChanged));
+                        if (cb) {
+                            //setCookieNonCpcgrAuth(isPasswordUpdated);
+                            cb();
+                        }
+
+                        return;
+                    }
+
+                    dispatch(failure('No result found'));
+                    dispatch(alertActions.error('No result found'));
+
+                },
+                error => {
+                    dispatch(failure(error));
+                    dispatch(alertActions.error(error.toString()));
+
+                }
+            );
+    };
+
+    function request() { return { type: userConstants.GET_USER_RESET_PASSWORD_REQUEST, } }
+    function success(isPasswordUpdated) { return { type: userConstants.GET_USER_RESET_PASSWORD_SUCCESS, isPasswordUpdated } }
+    function failure(error) { return { type: userConstants.GET_USER_RESET_PASSWORD_FAILURE, error } }
+}
+
+function changePasswordAction(data, cb) {
+    return dispatch => {
+        dispatch(request());
+        userService.change.changePassword(data)
+            .then(
+                async response => {
+                    const { isPasswordChanged } = response;
+
+                    if (isPasswordChanged) {
+
+                        dispatch(success(isPasswordChanged));
+                        if (cb) {
+                            //setCookieNonCpcgrAuth(isPasswordUpdated);
+                            cb();
+                        }
+
+                        return;
+                    }
+
+                    dispatch(failure('No result found'));
+                    dispatch(alertActions.error('No result found'));
+
+                },
+                error => {
+                    dispatch(failure(error));
+                    dispatch(alertActions.error(error.toString()));
+
+                }
+            );
+    };
+
+    function request() { return { type: userConstants.GET_USER_CHANGE_PASSWORD_REQUEST, } }
+    function success(isPasswordUpdated) { return { type: userConstants.GET_USER_CHANGE_PASSWORD_SUCCESS, isPasswordUpdated } }
+    function failure(error) { return { type: userConstants.GET_USER_CHANGE_PASSWORD_FAILURE, error } }
+}
+
 
 function getUserProfileIdAction() {
     return dispatch => {
@@ -206,11 +316,11 @@ function confirmTokenAction(data, cb) {
         userService.confirmTokenUserProfile(data)
             .then(
                 async response => {
-                    const { status, data } = response;
+                    const { status, isTokenValid } = response;
                     console.log(response, 480)
-                    if (data.length) {
+                    if (isTokenValid) {
 
-                        dispatch(success(data, status));
+                        dispatch(success(isTokenValid, "",status));
                         if (cb) {
                             setCookieNonCpcgrAuth(data.Token);
                             cb();

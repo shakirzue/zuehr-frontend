@@ -500,7 +500,7 @@ const ManagerAppBar = (props) => {
               <PersonIcon />
               <DropdownButton id="dropdown-basic-button" title="">
                 <Dropdown.Item href="/HRM/Edit/Employee/${EmployeeId}">Edit Profile</Dropdown.Item>
-                <Dropdown.Item href="/NewPassword">Change Password</Dropdown.Item>
+                <Dropdown.Item href="/Attendance/ChangePass">Change Password</Dropdown.Item>
                 <Dropdown.Item onClick={handleLogOut}>Logout</Dropdown.Item>
               </DropdownButton>
             </ListItemIcon>

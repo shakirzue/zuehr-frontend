@@ -11,6 +11,9 @@ export const userService = {
     loginNonCpcgrUserProfile,
     getUserProfileId,
     forgetPasswordUserProfile,
+    forgetPassword,
+    resetPassword,
+    changePassword,
     confirmTokenUserProfile
 };
 
@@ -61,7 +64,7 @@ function loginNonCpcgrUserProfile(data) {
         body: JSON.stringify(data)
     };
 
-    return fetch(`${API_URL}admin/loginNonCpcgrUserProfile`, requestOptions).then(handleResponse);
+    return fetch(`${API_URL}api/UserProfile/Login`, requestOptions).then(handleResponse);
 }
 
 function forgetPasswordUserProfile(data) {
@@ -72,7 +75,38 @@ function forgetPasswordUserProfile(data) {
         body: JSON.stringify(data)
     };
 
-    return fetch(`${API_URL}admin/forgotPasswordRequest`, requestOptions).then(handleResponse);
+    return fetch(`${API_URL}api/UserProfile/ForgetPasswordRequest/` + data.employeeNumber, requestOptions).then(handleResponse);
+}
+
+function forgetPassword(data) {
+    console.log(data, 450)
+    const requestOptions = {
+        method: 'POST',
+        headers: getHeaders(),
+        body: JSON.stringify(data)
+    };
+
+    return fetch(`${API_URL}api/UserProfile/ForgetPassword`, requestOptions).then(handleResponse);
+}
+
+function resetPassword(data) {
+    const requestOptions = {
+        method: 'POST',
+        headers: getHeaders(),
+        body: JSON.stringify(data)
+    };
+
+    return fetch(`${API_URL}api/UserProfile/ResetPassword`, requestOptions).then(handleResponse);
+}
+
+function changePassword(data) {
+    const requestOptions = {
+        method: 'POST',
+        headers: getHeaders(),
+        body: JSON.stringify(data)
+    };
+
+    return fetch(`${API_URL}api/UserProfile/ChangePassword`, requestOptions).then(handleResponse);
 }
 
 function confirmTokenUserProfile(data) {
@@ -83,7 +117,7 @@ function confirmTokenUserProfile(data) {
         body: JSON.stringify(data)
     };
 
-    return fetch(`${API_URL}admin/passwordResetVerify`, requestOptions).then(handleResponse);
+    return fetch(`${API_URL}api/UserProfile/ForgetPasswordRequestVerification/`+data.token, requestOptions).then(handleResponse);
 }
 
 function getUserProfileId(data) {

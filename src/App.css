@@ -616,3 +616,10 @@ table thead tr th {
 table tr td {
   font-size: 14px;
 }
+form.card.change-pass {
+  border-radius: 0 !important;
+  margin-top: 0 !important;
+  border: none !important;
+  min-height: 380px !important;
+  box-shadow: none !important;
+}

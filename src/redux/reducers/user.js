@@ -7,7 +7,7 @@ const initialState = {
 }
 
 export function users(state = initialState, action) {
-    const { type, result, error, defaultClient, profileId, nonCpcgrUser, newtoken, isVerified, requestType, statusCode } = action;
+    const { type, result, error, defaultClient, profileId, nonCpcgrUser, newtoken, isVerified, requestType, statusCode, isPasswordUpdated } = action;
     switch (type) {
         case userConstants.GET_PERMISSIONS_REQUEST:
             return {
@@ -108,6 +108,57 @@ export function users(state = initialState, action) {
                 error: error,
                 loading: false
             };
+            case userConstants.GET_USER_CHANGE_PASSWORD_REQUEST:
+            return {
+                ...initialState,
+                loading: true
+            };
+        case userConstants.GET_USER_CHANGE_PASSWORD_SUCCESS:
+            return {
+                ...initialState,
+                newtoken: newtoken,
+                loading: false
+            };
+        case userConstants.GET_USER_CHANGE_PASSWORD_FAILURE:
+            return {
+                ...initialState,
+                error: error,
+                loading: false  
+            };
+            case userConstants.GET_USER_RESET_PASSWORD_REQUEST:
+            return {
+                ...initialState,
+                loading: true
+            };
+        case userConstants.GET_USER_RESET_PASSWORD_SUCCESS:
+            return {
+                ...initialState,
+                newtoken: newtoken,
+                loading: false
+            };
+        case userConstants.GET_USER_RESET_PASSWORD_FAILURE:
+            return {
+                ...initialState,
+                error: error,
+                loading: false
+            };
+            case userConstants.GET_USER_PASSWORD_UPDATED_REQUEST:
+                return {
+                    ...initialState,
+                    loading: true
+                };
+            case userConstants.GET_USER_PASSWORD_UPDATED_SUCCESS:
+                return {
+                    ...initialState,
+                    isPasswordUpdated: isPasswordUpdated,
+                    loading: false
+                };
+            case userConstants.GET_USER_PASSWORD_UPDATED_FAILURE:
+                return {
+                    ...initialState,
+                    error: error,
+                    loading: false
+                };
         case userConstants.GET_USER_CONFIRM_TOKEN_REQUEST:
             return {
                 ...initialState,

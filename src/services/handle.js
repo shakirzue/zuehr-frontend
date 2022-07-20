@@ -21,9 +21,18 @@ export function handleResponse(response) {
 }
 
 export function getHeaders() {
+    // return {
+    //     'Content-Type': 'application/json',
+    //     'oid': getCookieOid(),
+    //     ...authHeader()
+    // }
     return {
         'Content-Type': 'application/json',
         'oid': getCookieOid(),
+        'Access-Control-Allow-Origin': process.env.REACT_APP_SERVER_BASE_URL,
+        'Access-Control-Allow-Credentials':'true',
+        'Access-Control-Allow-Methods': 'GET,HEAD,OPTIONS,POST,PUT',
+        'Access-Control-Allow-Headers': 'Content-Type, X-Auth-Token, Authorization, Origin',
         ...authHeader()
     }
 }

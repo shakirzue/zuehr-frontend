@@ -12,6 +12,8 @@ export const authenticationService = {
     Forget,
     Verify,
     NewPassword,
+    ChangePassword,
+    Reset,
 
     currentUser: currentUserSubject.asObservable(),
     get currentUserValue () {return JSON.parse(localStorage.getItem('currentUser')); },
@@ -73,6 +75,16 @@ function Forget() {
     window.location.href = '/Forget';
 }
 
+function Reset() {
+    // if(!showSignUpForm){
+    //     setShowSignUpForm(true);
+    //     setShowLoginForm(false);
+    // }
+    // else
+    //     setShowSignUpForm(false)
+    window.location.href = '/Reset';
+}
+
 function Verify() {
     // if(!showSignUpForm){
     //     setShowSignUpForm(true);
@@ -91,4 +103,13 @@ function NewPassword() {
     // else
     //     setShowSignUpForm(false)
     window.location.href = '/New-Password';
+}
+function ChangePassword() {
+    // if(!showSignUpForm){
+    //     setShowSignUpForm(true);
+    //     setShowLoginForm(false);
+    // }
+    // else
+    //     setShowSignUpForm(false)
+    window.location.href = '/Change-Password';
 }

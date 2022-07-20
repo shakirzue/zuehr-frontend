@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { backgroundColor } from "../../Constants";
 import ManagerAppbar from "../../components/ManagerAppBar";
 import logo from "../../Images/logo.png";
@@ -7,14 +7,11 @@ import { userActions, hrModuleActions } from '../../redux/actions';
 import { Button } from "@material-ui/core";
 import { getCookieNonCpcgrAuth } from "../../helpers/utils";
 import Form from "react-bootstrap/Form";
-import { useSelector } from "react-redux";
-import { red } from '@material-ui/core/colors';
-
 
 
 const Login = (props) => {
     var isAuthenticated = getCookieNonCpcgrAuth();
-    const [message, setMessage] = useState('');
+
     const [showSignUpForm, setShowSignUpForm] = React.useState(false);
     const [showLoginForm, setShowLoginForm] = React.useState(false);
     const [email, setEmail] = useState("");
@@ -24,14 +21,13 @@ const Login = (props) => {
     const [surName, setSurName] = useState("");
     const [phone, setPhone] = useState("");
     const dispatch = useDispatch();
-    const { error } = useSelector(state => state.users);
 
     const validateForm = () => {
         return email.length > 0 && password.length > 0;
     };
 
     const redirectToDashboard = () => {
-        window.location.href = '/Home';
+        window.location.href = '/Login';
     }
 
     const getPersonalDetailOfLogger = () => {
@@ -39,19 +35,15 @@ const Login = (props) => {
     }
 
 
-    const handleSubmitNonCpcgrLogin = (event) => {
+    const handleResetPassword = (event) => {
         event.preventDefault();
-
-        dispatch(userActions.loginNonCpcgrUserProfileAction({
-            email: email,
-            password: password
+        console.log(event)
+        dispatch(userActions.resetPasswordAction({
+            employeeNumber: employeeNumber
         }, redirectToDashboard));
 
     };
-    useEffect(() => {
-        //setMessage('Example error message!');
-        console.log(error, 555)
-    }, [error])
+
 
     return (
         <div className="login-background" style={{
@@ -67,48 +59,26 @@ const Login = (props) => {
 
                     <Form className="card col-sm-4 mx-auto d-flex justify-content-center align-items-center" style={{ minHeight: "500px", backgroundColor: 'white' }}>
                         <img src={logo} alt="Zue logo" width="35%" />
-                        <h2 className="mt-3 mb-5">Login</h2>
+                        <h2 className="mt-3 mb-5">Reset Password</h2>
                         <Form.Group className="mb-3 col-sm-8" size="lg" controlId="email">
 
                             <Form.Control
                                 autoFocus
-                                type="email"
-                                placeholder={'Enter Email or ID'}
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                type="text"
+                                placeholder={'Enter employee ID'}
+                                value={employeeNumber}
+                                onChange={(e) => setEmployeeNumber(e.target.value)}
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3 col-sm-8" size="lg" controlId="password">
 
 
-                            <Form.Control
-                                type="password"
-                                placeholder={'Enter Password'}
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
-                        </Form.Group>
-                        <div className="d-flex fr">
-                            <a href="/Forget" class="fr text-right mb-3">Forgot Your Password?</a>
-                        </div>
-                        <Button className="col-sm-8 primary-btn mb-3" block="true" size="lg" type="submit" disabled={!validateForm()} onClick={handleSubmitNonCpcgrLogin}>
-                            Login
+                        <Button className="col-sm-8 primary-btn mb-3" block="true" size="lg" type="submit" onClick={handleResetPassword}>
+                            Request Reset
                         </Button>
-                        {/* <div class="reg mb-3">
-                    Not Registered? <a href="/SignUp">Create Account</a>
-                </div> */}
-                <div>
-                    <p style={{color: "red"}}><b>{error}</b></p>
-                </div>
-
-                {alert.message &&
-                        <div className="container alert-container">
-                        <div className={`alert ${alert.type}`}>{alert.message}</div>
-                        </div>
-                    }
+                        {<div class="reg mb-3">
+                            Have an Account? <a href="/">Sign In</a>
+                        </div>}
                     </Form>
-
-      
 
                 </div>
 

@@ -8,6 +8,7 @@ import { Button } from "@material-ui/core";
 import { getCookieNonCpcgrAuth } from "../../helpers/utils";
 import Form from "react-bootstrap/Form";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { setCookieOid, setCookieNonCpcgrAuth, setLocalStorage, getLocalStorage, isSuccess, getObjWithProfileId } from "../../helpers/utils";
 
 
 
@@ -18,17 +19,21 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 // }, [])
 
 
+// if (token !== "") {
+//     history.push('/New-Password')
+//          }
+
 
 
 
 const Verify = (props) => {
     const dispatch = useDispatch();
-    const { error, isVerified, StatusCode, requestType } = useSelector(state => state.users);
+    const { error, isVerified, StatusCode, requestType, newtoken } = useSelector(state => state.users);
     useEffect(() => {
-        console.log(420)
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTExIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE2NTcyMDMyNDksImV4cCI6MTY1NzIxMDQ0OX0.BhWOOb4PYRVK-lCXrf-8i_2BZ85Qze5RR9fAXHuWYyU';
+
+        const token = getLocalStorage('token');       
         const email = 'admin@gmail.com';
-        dispatch(userActions.confirmTokenAction({ token: token, email: email }))
+        //dispatch(userActions.confirmTokenAction({ token: token }))
         console.log(error, 555)
     }, [])
 
@@ -59,7 +64,7 @@ const Verify = (props) => {
     };
 
     const redirectToDashboard = () => {
-        window.location.href = '/Verify';
+        window.location.href = '/NewPassword';
     }
 
     const getPersonalDetailOfLogger = () => {

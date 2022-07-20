@@ -6,6 +6,7 @@ import HomePage from "./Pages/Home";
 import LoginPage from "./Pages/Auth/Login";
 import SignUpPage from "./Pages/Auth/SignUp";
 import ForgetPage from "./Pages/Auth/Forget";
+import ResetPage from "./Pages/Auth/Reset";
 import VerifyPage from "./Pages/Auth/Verify";
 import NewPasswordPage from "./Pages/Auth/NewPassword";
 // import PrivateRoute from './components/PrivateRoute';
@@ -27,6 +28,7 @@ import ShiftForm from './Pages/Attendance/Shift/ShiftForm';
 import CreateShift from './Pages/Attendance/Shift/CreateShift';
 import AssignShift from './Pages/Attendance/Shift/AssignShift';
 import ShiftList from './Pages/Attendance/Shift/ShiftList';
+import ChangePass from './Pages/Attendance/Shift/ChangePass';
 import ShiftDetails from './Pages/Attendance/Shift/ShiftDetails';
 //import { history } from './helpers/history'
 //import { store } from './redux/store';
@@ -67,12 +69,14 @@ function App() {
             <Route path='/Attendance/CreateShift' element={<CreateShift />} />
             <Route path='/Attendance/AssignShift' element={<AssignShift />} />
             <Route path='/Attendance/ShiftList' element={<ShiftList />} />
+            <Route path='/Attendance/ChangePass' element={<ChangePass />} />
             <Route path='/Attendance/ShiftDetails' element={<ShiftDetails />} />
           </Route>
           <Route path='/Home' element={<HomePage />} />
           <Route path='/' element={<LoginPage />} />
           <Route path='/SignUp' element={<SignUpPage />} />
           <Route path='/Forget' element={<ForgetPage />} />
+          <Route path='/Reset' element={<ResetPage />} />
           <Route path='/Verify' element={<VerifyPage />} />
           <Route path='/NewPassword' element={<NewPasswordPage />} />
         </Routes>

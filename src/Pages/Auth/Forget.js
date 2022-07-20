@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { backgroundColor } from "../../Constants";
 import ManagerAppbar from "../../components/ManagerAppBar";
 import logo from "../../Images/logo.png";
@@ -7,6 +7,7 @@ import { userActions, hrModuleActions } from '../../redux/actions';
 import { Button } from "@material-ui/core";
 import { getCookieNonCpcgrAuth } from "../../helpers/utils";
 import Form from "react-bootstrap/Form";
+import { useSelector } from "react-redux";
 
 
 const Login = (props) => {
@@ -21,13 +22,14 @@ const Login = (props) => {
     const [surName, setSurName] = useState("");
     const [phone, setPhone] = useState("");
     const dispatch = useDispatch();
+    const { error } = useSelector(state => state.users);
 
     const validateForm = () => {
         return email.length > 0 && password.length > 0;
     };
 
     const redirectToDashboard = () => {
-        window.location.href = '/Forget';
+        window.location.href = '/NewPassword';
     }
 
     const getPersonalDetailOfLogger = () => {
@@ -38,11 +40,16 @@ const Login = (props) => {
     const handleForgetPassword = (event) => {
         event.preventDefault();
         console.log(event)
-        dispatch(userActions.forgetPasswordAction({
-            email: email
-        }));
+        dispatch(userActions.forgetPasswordRequestAction({
+            employeeNumber: employeeNumber
+        }, redirectToDashboard));
 
     };
+
+    useEffect(() => {
+        //setMessage('Example error message!');
+        console.log(error, 555)
+    }, [error])
 
 
     return (
@@ -64,10 +71,10 @@ const Login = (props) => {
 
                             <Form.Control
                                 autoFocus
-                                type="email"
-                                placeholder={'Enter Email or ID'}
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                type="text"
+                                placeholder={'Enter employee ID'}
+                                value={employeeNumber}
+                                onChange={(e) => setEmployeeNumber(e.target.value)}
                             />
                         </Form.Group>
 
@@ -78,6 +85,10 @@ const Login = (props) => {
                         {<div class="reg mb-3">
                             Have an Account? <a href="/">Sign In</a>
                         </div>}
+
+                        <div>
+                    <p style={{color: "red"}}><b>{error}</b></p>
+                </div>
                     </Form>
 
                 </div>
